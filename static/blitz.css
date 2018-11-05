@@ -1,0 +1,13 @@
+body {
+    background-image: url(https://raw.githubusercontent.com/projectblitz/projectblitz.github.io/master/static/drak_drakon.png);
+    background-size: cover;
+    color: yellow;
+}
+
+.pagecontainer {
+    background-color: rgba(255, 255, 255, 0.90);
+}
+
+pre {
+    background-color: rgba(255, 255, 255, 0.10);
+}
