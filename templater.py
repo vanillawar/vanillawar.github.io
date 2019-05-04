@@ -9,13 +9,15 @@ TEMPLATE = '''<!DOCTYPE html>
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.0/dist/mini-default.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
   <link rel="stylesheet" href="static/blitz.css" />
   <link rel="shortcut icon" type="image/png" href="static/drak.png" />
   <title>Vanilla War</title>
 </head>
 
-<body class="container">
+<body>
+ <div class="container">
   <nav class="row">
     <a href="index.html" class="col-sm-1">Vanilla War</a>
     <a href="level.html" class="col-sm-1">Level</a>
@@ -33,6 +35,7 @@ TEMPLATE = '''<!DOCTYPE html>
       <p>© 2018-2019 Warlord Drak | <a href="https://discord.gg/W55S8MB">discord.gg/W55S8MB</a> | <a href="about.html" class="col-sm-1">About</a></p>
     </div>
   </footer>
+ </div>
 </body>
 
 </html>

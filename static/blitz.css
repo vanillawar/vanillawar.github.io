@@ -1,13 +1,24 @@
 body {
     background-image: url(https://raw.githubusercontent.com/projectblitz/projectblitz.github.io/master/static/drak_drakon.png);
     background-size: cover;
-    color: white;
 }
 
-.pagecontainer {
-    background-color: rgba(255, 255, 255, 0.90);
+.container {
+    color: #fff;
 }
 
-pre {
-    background-color: rgba(255, 255, 255, 0.10);
+.q1 {
+    color: #fff !important;
+}
+.q2 {
+    color: #1eff00 !important;
+}
+.q3 {
+    color: #0070dd !important;
+}
+.q4 {
+    color: #a335ee !important;
+}
+.q5 {
+    color: #ff8000 !important;
 }
