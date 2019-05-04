@@ -1,10 +1,46 @@
 body {
-    background-image: url(https://raw.githubusercontent.com/projectblitz/projectblitz.github.io/master/static/drak_drakon.png);
-    background-size: cover;
+    background-color: #070707;
 }
 
 .container {
     color: #fff;
+}
+
+.banner {
+    background: center / cover no-repeat url("banner.jpg");
+    height: 96px;
+}
+
+.vw-icon {
+    background: left / contain no-repeat url("icon.jpg");
+    height: 32px;
+}
+
+.row, .card {
+    background-color: #070707;
+    color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #d7cea4;
+}
+
+nav.row {
+    background-color: #000;
+    border: 0px;
+}
+
+footer {
+    margin-top: 2em;
+    padding: 0em;
+    text-align: center;
+}
+
+a {
+    color: #FFB019 !important;
+}
+a:visited {
+    color: #CFCFCF !important;
 }
 
 .q1 {
@@ -21,4 +57,9 @@ body {
 }
 .q5 {
     color: #ff8000 !important;
+}
+
+pre {
+    background: #cccccc;
+    color: #000;
 }
