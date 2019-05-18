@@ -21,7 +21,7 @@ TEMPLATE = '''<!DOCTYPE html>
   <div class="banner"></div>
 
   <nav class="row">
-    <a href="index.html" class="col-sm-1"><div class="vw-icon"></div></a>
+    <a href="index.html" class="col-sm-1"><div class="vw-logo"></div></a>
     <a href="level.html" class="col-sm-1">Level</a>
     <a href="talents.html" class="col-sm-1">Talents</a>
     <a href="gear.html" class="col-sm-1">Gear</a>

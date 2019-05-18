@@ -11,8 +11,8 @@ body {
     height: 96px;
 }
 
-.vw-icon {
-    background: left / contain no-repeat url("icon.jpg");
+.vw-logo {
+    background: left / contain no-repeat url("logo.png");
     height: 32px;
 }
 
@@ -62,4 +62,9 @@ a:visited {
 pre {
     background: #cccccc;
     color: #000;
+}
+
+.warrior {
+    color: #b08b62;
+    /* #c79c6e */
 }
