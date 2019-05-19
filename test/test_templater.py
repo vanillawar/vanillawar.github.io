@@ -15,15 +15,21 @@ def test_generate():
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.0/dist/mini-default.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
   <link rel="stylesheet" href="static/blitz.css" />
-  <link rel="shortcut icon" type="image/png" href="static/drak.png" />
-  <title>Vanilla War</title>
+  <link rel="shortcut icon" type="image/png" href="static/logo.png" />
+  <title>Vanilla Warrior</title>
 </head>
 
-<body class="container">
+<body>
+ <div class="container">
+  <div class="banner">
+    <img src="static/vanillawar_banner_logo_96px.png" alt="Vanilla Warrior Text Logo">
+  </div>
+
   <nav class="row">
-    <a href="index.html" class="col-sm-1">Vanilla War</a>
+    <a href="index.html" class="col-sm-1"><div class="vw-logo"></div></a>
     <a href="level.html" class="col-sm-1">Level</a>
     <a href="talents.html" class="col-sm-1">Talents</a>
     <a href="gear.html" class="col-sm-1">Gear</a>
@@ -35,10 +41,16 @@ def test_generate():
 <h1>Hy!</h1>
 
   <footer class="row">
-    <div class="col-sm-12">
-      <p>© 2018-2019 Warlord Drak | <a href="https://discord.gg/W55S8MB">discord.gg/W55S8MB</a> | <a href="about.html" class="col-sm-1">About</a></p>
+    <div class="col-sm">
+      <p>
+        <small>
+          © 2018-2019 by <a href="about.html">Warlord Drak</a><br>
+          <a href="https://discord.gg/W55S8MB">discord.gg/W55S8MB</a>
+        </small>
+      </p>
     </div>
   </footer>
+ </div>
 </body>
 
 </html>
