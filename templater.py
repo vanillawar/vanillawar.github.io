@@ -13,7 +13,7 @@ TEMPLATE = '''<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
   <link rel="stylesheet" href="static/blitz.css" />
   <link rel="shortcut icon" type="image/png" href="static/logo.png" />
-  <title>Vanilla War</title>
+  <title>Vanilla Warrior</title>
 </head>
 
 <body>

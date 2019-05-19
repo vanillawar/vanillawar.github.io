@@ -19,10 +19,12 @@ body {
 .row, .card {
     background-color: #070707;
     color: #fff;
+    vertical-align: text-top;
 }
 .card {
     border: 0.15rem solid #f3e5ab;
     padding: 0.5rem;
+    align-self: flex-start;
 }
 
 h1, h2, h3, h4, h5, h6 {
