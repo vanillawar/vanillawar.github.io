@@ -24,11 +24,11 @@ def test_generate():
 
 <body>
  <div class="container">
-  <div class="banner">
-    <a href="https://www.vanillawar.com/">
+  <a href="https://www.vanillawar.com/">
+    <div class="banner">
       <img src="static/vanillawar_banner_logo_96px.png" alt="Vanilla Warrior Text Logo">
-    </a>
-  </div>
+    </div>
+  </a>
 
   <nav class="row">
     <a href="index.html" class="col-sm-1"><div class="vw-logo"></div></a>
@@ -38,6 +38,7 @@ def test_generate():
     <a href="pvp.html" class="col-sm-1">PvP</a>
     <a href="economy.html" class="col-sm-1">Economy</a>
     <a href="ui-and-macros.html" class="col-sm-1">UI and Macros</a>
+    <a href="glossary.html" class="col-sm-1">Glossary</a>
   </nav>
 
 <h1>Hy!</h1>

@@ -1,25 +1,30 @@
+:root {
+    --color-vanilla: #f3e5ab;
+    --color-warrior: #b08b62; /* #c79c6e */
+
+    --color-text: #fff;
+}
+
 body {
     background-color: #070707;
+    color: var(--color-text);
+    --table-head-fore-color: var(--color-vanilla);
+    --table-body-fore-color: var(--color-text);
+    --table-head-back-color: #070707;
+    --table-body-back-color: #070707;
+    --table-body-alt-back-color: #212121;
+    --table-body-hover-back-color: var(--color-warrior);
 }
 
 .container {
-    color: #fff;
+    color: var(--color-text);
 }
 
-.banner {
-    background: center / cover no-repeat url("banner.jpg");
-    text-align: center;
-    height: 96px;
-}
 
-.vw-logo {
-    background: left / contain no-repeat url("logo.png");
-    height: 32px;
-}
 
 .row, .card {
     background-color: #070707;
-    color: #fff;
+    color: var(--color-text);
     vertical-align: text-top;
 }
 .card {
@@ -33,10 +38,18 @@ h1, h2, h3, h4, h5, h6 {
     color: #f3e5ab; /* d7cea4 */
 }
 
+pre {
+    background: #eee;
+    color: #000;
+}
+
+table {
+    max-height: none !important;
+}
+
 nav.row {
-    background-color: #000;
+    background-color: #070707;
     border: 0em;
-    /*border-top: .2rem solid #212121;*/
     border-bottom: .2rem solid #212121;
     padding-bottom: 0.5em;
     text-align: center;
@@ -72,17 +85,22 @@ a:visited {
     color: #ff8000 !important;
 }
 
-pre {
-    background: #cccccc;
-    color: #000;
+.banner {
+    background: center / cover no-repeat url("banner.jpg");
+    text-align: center;
+    height: 96px;
+}
+
+.vw-logo {
+    background: left / contain no-repeat url("logo.png");
+    height: 32px;
 }
 
 .vanilla {
-    color: #f3e5ab;
+    color: var(--color-vanilla);
 }
 .warrior {
-    color: #b08b62;
-    /* #c79c6e */
+    color: var(--color-warrior);
 }
 .factionLogo {
     height: 1.33em;
