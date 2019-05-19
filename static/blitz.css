@@ -20,9 +20,13 @@ body {
     background-color: #070707;
     color: #fff;
 }
+.card {
+    border: 0.15rem solid #f3e5ab;
+    padding: 0.5rem;
+}
 
 h1, h2, h3, h4, h5, h6 {
-    color: #d7cea4;
+    color: #f3e5ab; /* d7cea4 */
 }
 
 nav.row {
@@ -64,6 +68,9 @@ pre {
     color: #000;
 }
 
+.vanilla {
+    color: #f3e5ab;
+}
 .warrior {
     color: #b08b62;
     /* #c79c6e */
