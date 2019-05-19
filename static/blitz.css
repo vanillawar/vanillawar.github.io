@@ -49,11 +49,13 @@ table {
 }
 
 nav.row {
-    background-color: #070707;
     border: 0em;
+    border-top: .2rem solid #212121;
     border-bottom: .2rem solid #212121;
-    padding-bottom: 0.5em;
     text-align: center;
+}
+nav.row a.col-sm-1 {
+    max-width: none;
 }
 
 footer {
@@ -93,7 +95,7 @@ a:visited {
 }
 
 .vw-logo {
-    background: left / contain no-repeat url("logo.png");
+    background: center / contain no-repeat url("logo.png");
     height: 32px;
 }
 
