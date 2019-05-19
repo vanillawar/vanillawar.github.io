@@ -8,6 +8,7 @@ body {
 
 .banner {
     background: center / cover no-repeat url("banner.jpg");
+    text-align: center;
     height: 96px;
 }
 
@@ -22,7 +23,8 @@ body {
     vertical-align: text-top;
 }
 .card {
-    border: 0.15rem solid #f3e5ab;
+    border: 0.15rem solid #212121;
+    background-color: #212121;
     padding: 0.5rem;
     align-self: flex-start;
 }
@@ -33,13 +35,18 @@ h1, h2, h3, h4, h5, h6 {
 
 nav.row {
     background-color: #000;
-    border: 0px;
+    border: 0em;
+    /*border-top: .2rem solid #212121;*/
+    border-bottom: .2rem solid #212121;
+    padding-bottom: 0.5em;
+    text-align: center;
 }
 
 footer {
     margin-top: 2em;
     padding: 0em;
     text-align: center;
+    border-top: .2rem solid #212121;
 }
 
 a {
@@ -76,4 +83,7 @@ pre {
 .warrior {
     color: #b08b62;
     /* #c79c6e */
+}
+.factionLogo {
+    height: 1.33em;
 }

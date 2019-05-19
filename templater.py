@@ -18,7 +18,9 @@ TEMPLATE = '''<!DOCTYPE html>
 
 <body>
  <div class="container">
-  <div class="banner"></div>
+  <div class="banner">
+    <img src="static/vanillawar_banner_logo_96px.png" alt="Vanilla Warrior Text Logo">
+  </div>
 
   <nav class="row">
     <a href="index.html" class="col-sm-1"><div class="vw-logo"></div></a>
