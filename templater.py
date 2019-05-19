@@ -19,7 +19,9 @@ TEMPLATE = '''<!DOCTYPE html>
 <body>
  <div class="container">
   <div class="banner">
-    <img src="static/vanillawar_banner_logo_96px.png" alt="Vanilla Warrior Text Logo">
+    <a href="https://www.vanillawar.com/">
+      <img src="static/vanillawar_banner_logo_96px.png" alt="Vanilla Warrior Text Logo">
+    </a>
   </div>
 
   <nav class="row">
