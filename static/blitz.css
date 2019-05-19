@@ -8,6 +8,9 @@
 body {
     background-color: #070707;
     color: var(--color-text);
+
+    /* mini.css customization */
+    --nav-hover-back-color: #212121;
     --table-head-fore-color: var(--color-vanilla);
     --table-body-fore-color: var(--color-text);
     --table-head-back-color: #070707;
@@ -19,8 +22,6 @@ body {
 .container {
     color: var(--color-text);
 }
-
-
 
 .row, .card {
     background-color: #070707;
