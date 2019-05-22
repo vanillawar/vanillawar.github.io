@@ -108,3 +108,7 @@ a:visited {
 .factionLogo {
     height: 1.33em;
 }
+
+div.wowhead-tooltip * {
+    display: revert;
+}
