@@ -14,6 +14,8 @@ TEMPLATE = '''<!DOCTYPE html>
   <link rel="stylesheet" href="static/vanillawar.css" />
   <link rel="shortcut icon" type="image/png" href="static/logo.png" />
   <title>Vanilla Warrior</title>
+  <script>var whTooltips = ''' + '{colorLinks: true, iconizeLinks: true, renameLinks: true}' + ''';</script>
+  <script src="https://wow.zamimg.com/widgets/power.js"></script>
 </head>
 
 <body>
