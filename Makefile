@@ -4,5 +4,8 @@ all:
 test:
 	pipenv run pytest
 
+preview:
+	python3 -m http.server
+
 .PHONY: all test
 
