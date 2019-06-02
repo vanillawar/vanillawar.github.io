@@ -44,6 +44,11 @@ pre {
     color: #000;
 }
 
+code {
+    background: #eee;
+    color: #000;
+}
+
 table {
     max-height: none !important;
 }
