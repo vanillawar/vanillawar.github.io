@@ -1,21 +1,42 @@
 <div class="row">
   <div class="col-sm-12">
+
+    <p style="color:red">
+      Keep in mind, that WoW Classic uses the modern WoW client API,
+      so most 1.12 macros/add-ons relying on scripted targeting or spell casting will not work!
+    </p>
+
     <h2>UI</h2>
 
     <ul>
-      <li>Have binds</li>
+      <li>Have keybindings!</li>
+      <li>Must have add-ons: equipment manager, enemy health in percent, some auction/mail add-on</li>
+      <li>Must have add-ons for PvE: threat meter, boss mods, Cthun warner</li>
+      <li>Must have add-ons for PvP: enemy cast bar/spell warner</li>
     </ul>
 
     <h2>Macros</h2>
-    <p>Keep in mind, that Blizzard has not officially confirmed, whether the 1.12 WoW Client API will work.</p>
+
 
     <p>
       Start attack:
     </p>
-    <pre>/script if not IsCurrentAction(72) then UseAction(72) end;</pre>
+    <pre>#showtooltip
+/startattack
+/cast Mortal Strike
+    </pre>
 
     <p>
-      One button ranged:
+      Charge + Hamstring/Intercept:
+    </p>
+    <pre>#showtooltip
+/startattack
+/cast [stance:1] Charge; [stance:3] Intercept
+/cast Hamstring
+    </pre>
+
+    <p>
+      One button ranged (not confirmed, yet!):
     </p>
     <pre>/cast Throw
 /cast Shoot Gun
@@ -23,7 +44,7 @@
 /cast Shoot Bow</pre>
 
     <p>
-      Use upper/lower trinket:
+      Use upper/lower trinket (not confirmed, yet!):
     </p>
     <pre>/script UseInventoryItem(13);
 /script UseInventoryItem(14);</pre>
