@@ -1,42 +1,63 @@
 :root {
     --color-vanilla: #f3e5ab;
-    --color-warrior: #b08b62; /* #c79c6e */
+    --vw-color-warrior: #b08b62; /* #c79c6e */
+    --vw-color-mage: #40C7EB;
+    --vw-color-warlock: #8787ED;
+    --vw-color-priest: #FFFFFF;
+    --vw-color-rogue: #FFF569;
+    --vw-color-druid: #FF7D0A;
+    --vw-color-hunter: #ABD473;
+    --vw-color-shaman: #F58CBA;
+    --vw-color-paladin: #F58CBA;
 
-    --color-text: #fff;
+    --vw-color-text: #fff;
+    --vw-back-color: #070707;
+    --vw-alt-back-color: #212121;
 }
 
 body {
-    background-color: #070707;
-    color: var(--color-text);
+    scroll-behavior: smooth;
+    background-color: var(--vw-back-color);
+    color: var(--vw-color-text);
 
     /* mini.css customization */
-    --nav-hover-back-color: #212121;
+    --fore-color: var(--vw-color-text);
+    --back-color: var(--vw-back-color);
+
+    --nav-fore-color: var(--vw-color-text);
+    --nav-back-color: var(--vw-back-color);
+    --nav-hover-back-color: var(--vw-alt-back-color);
+
     --table-head-fore-color: var(--color-vanilla);
-    --table-body-fore-color: var(--color-text);
-    --table-head-back-color: #070707;
-    --table-body-back-color: #070707;
-    --table-body-alt-back-color: #212121;
-    --table-body-hover-back-color: var(--color-warrior);
+    --table-body-fore-color: var(--vw-color-text);
+    --table-head-back-color: var(--vw-back-color);
+    --table-body-back-color: var(--vw-back-color);
+    --table-body-alt-back-color: var(--vw-alt-back-color);
+    --table-body-hover-back-color: var(-vw-color-warrior);
+
+    --card-fore-color: var(--vw-color-text);
+    --card-back-color: var(--vw-alt-back-color);
+
+    --footer-fore-color: var(--vw-color-text)
+    --footer-back-color: var(--vw-back-color);
 }
 
 .container {
-    color: var(--color-text);
+    color: var(--vw-color-text);
 }
 
-.row, .card {
-    background-color: #070707;
-    color: var(--color-text);
-    vertical-align: text-top;
+.row {
+    background-color: var(--vw-back-color);
 }
+
 .card {
-    border: 0.15rem solid #212121;
-    background-color: #212121;
+    border: 0.15rem solid var(--vw-alt-back-color);
     padding: 0.5rem;
     align-self: flex-start;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #f3e5ab; /* d7cea4 */
+    color: var(--color-vanilla); /* alt: d7cea4 */
 }
 
 pre {
@@ -53,21 +74,26 @@ table {
     max-height: none !important;
 }
 
+
+nav {
+    margin: 0em;
+    padding: 0em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
 nav.row {
     border: 0em;
-    border-top: .2rem solid #212121;
-    border-bottom: .2rem solid #212121;
+    border-left: .25rem solid var(--vw-alt-back-color);
+    border-right: .25rem solid var(--vw-alt-back-color);
+    border-bottom: .25rem solid var(--vw-alt-back-color);
     text-align: center;
-}
-nav.row a.col-sm-1 {
-    max-width: none;
 }
 
 footer {
     margin-top: 2em;
     padding: 0em;
     text-align: center;
-    border-top: .2rem solid #212121;
+    border-top: .25rem solid var(--vw-alt-back-color);
 }
 
 a {
@@ -99,16 +125,11 @@ a:visited {
     height: 96px;
 }
 
-.vw-logo {
-    background: center / contain no-repeat url("logo.png");
-    height: 32px;
-}
-
 .vanilla {
     color: var(--color-vanilla);
 }
 .warrior {
-    color: var(--color-warrior);
+    color: var(--vw-color-warrior);
 }
 .factionLogo {
     height: 1.33em;

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *;">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
+    <link rel="stylesheet" href="../static/vanillawar.css" />
+    <link rel="shortcut icon" type="image/png" href="../static/logo.png" />
+    <title>Taunt Generator | Vanilla Warrior</title>
+    <meta name="description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Taunt Generator | Vanilla Warrior" />
+    <meta property="og:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+    <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
+    <meta property="twitter:title" content="Taunt Generator | Vanilla Warrior" />
+    <meta property="twitter:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+    <meta property="twitter:creator" content="@WarlordDrak" />
+    <meta property="twitter:site" content="@WarlordDrak" />
+    <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
+
+    <script>
+const TAUNTS = [
+        {text: "You are an NPC!", image: "npc.jpg"},
+        {text: "You are a NO-SHOE PEON!", image: "orc.jpg"},
+        {text: "You are a BREW!", image: "brewmaster.jpg"},
+        {text: "U ar sUPer hIgh tRoLL MONNN!", image: "troll.jpg"},
+        {text: "You are a COW, a COW with a ... wait what?!", image: "cowcatlevel.jpg"},
+        {text: "You are a gray TREELOVER!", image: "not_drakon.jpg"},
+        {text: "You are a SKELETON!", image: "ud.jpg"},
+        {text: "You are a huge MAGGOT!", image: "nice_pet.jpg"},
+];
+
+function get(elementId) {
+    return document.getElementById(elementId);
+}
+function setText(elementId, text) {
+    get(elementId).innerText = text;
+}
+function randomInt(maxNotIncluded) {
+  return Math.floor(Math.random() * Math.floor(maxNotIncluded));
+}
+
+var tauntIndex = 0;
+function randomTaunt() {
+    const url = new URL(window.location.href);
+    tauntIndex = (url.searchParams.get('t') % TAUNTS.length) || randomInt(TAUNTS.length);
+    var taunt = TAUNTS[tauntIndex];
+    setText("taunter", taunt.text);
+
+    if (taunt.image !== "") {
+        get("surprise").src = "taunt-generator-images/" + taunt.image;
+    } else {
+        get("surprise").src = "../static/drak.png";
+    }
+
+    get("linker").value = String(window.location.href).replace(/\?t=.*/, '') + "?t=" + tauntIndex;
+}
+    </script>
+</head>
+
+<body onload="randomTaunt()">
+    <div class="container">
+
+
+        <p>
+            After years of unparalleled freedom of speech and creative expression,
+            the international and diverse WoW Classic community now needs to comply to <a href="https://eu.battle.net/forums/en/code-of-conduct/" target="_blank">Blizzard's Code of Conduct</a>.
+            So let us practice...
+        </p>
+
+        <hr>
+
+        <div style="text-align: center;">
+            <h1 id="taunter" style="font-size:5em;"></h1>
+
+            <img id="surprise" src="../static/drak.png" alt="Taunt now!" onclick="randomTaunt()" />
+        </div>
+
+        <hr>
+
+        <div style="text-align: center;">
+            <input id="linker" type="text" style="width:100%;">
+            <small>
+                <a href="" onclick="randomTaunt()">random</a>
+            </small>
+        </div>
+
+        <div class="row" style="margin-top:2em; padding:0em; text-align:center;">
+            <div class="col-sm">
+                <a href="https://www.vanillawar.com"><img src="../static/logo.png" src="VanillaWar.com icon" /></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

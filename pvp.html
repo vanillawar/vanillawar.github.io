@@ -8,7 +8,22 @@
   <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
   <link rel="stylesheet" href="static/vanillawar.css" />
   <link rel="shortcut icon" type="image/png" href="static/logo.png" />
-  <title>Vanilla Warrior</title>
+  <title>pvp | Vanilla Warrior</title>
+  <meta name="description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="pvp | Vanilla Warrior" />
+  <meta property="og:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
+  <meta property="twitter:title" content="pvp | Vanilla Warrior" />
+  <meta property="twitter:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="twitter:creator" content="@WarlordDrak" />
+  <meta property="twitter:site" content="@WarlordDrak" />
+  <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
+
+  <script src="static/js/timer.js"></script>
+
   <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true, hide: {ilvl: true}};</script>
   <script src="https://wow.zamimg.com/widgets/power.js"></script>
 </head>
@@ -17,19 +32,18 @@
  <div class="container">
   <a href="https://www.vanillawar.com/">
     <div class="banner">
-      <img src="static/vanillawar_banner_logo_96px.png" alt="Vanilla Warrior Text Logo">
+      <img src="static/vanillawar_banner_logo_w_icon_96px.png" alt="Vanilla Warrior Text Logo">
     </div>
   </a>
 
   <nav class="row">
-    <a href="index.html" class="col-sm-1"><div class="vw-logo"></div></a>
-    <a href="level.html" class="col-sm-1">Level</a>
-    <a href="talents.html" class="col-sm-1">Talents</a>
-    <a href="gear.html" class="col-sm-1">Gear</a>
-    <a href="pvp.html" class="col-sm-1">PvP</a>
-    <a href="economy.html" class="col-sm-1">Economy</a>
-    <a href="ui-and-macros.html" class="col-sm-1">UI and Macros</a>
-    <a href="glossary.html" class="col-sm-1">Glossary</a>
+    <span class="col-sm"><a href="level.html">Level</a></span>
+    <span class="col-sm"><a href="talents.html">Talents</a></span>
+    <span class="col-sm"><a href="pve-gear.html">PvE/Gear</a></span>
+    <span class="col-sm"><a href="pvp.html">PvP</a></span>
+    <span class="col-sm"><a href="gold.html">Gold</a></span>
+    <span class="col-sm"><a href="ui-macros.html">UI/Macros</a></span>
+    <span class="col-sm"><a href="glossary.html">Glossary</a></span>
   </nav>
 
 <div class="row">
@@ -52,6 +66,7 @@
       <li>Learn to peel</li>
       <li>Remember and use your unique utility: Mortal Strike, Hamstring/PH, Intercept+Charge, Disarm, Taunt and RNG weapon procs for insta-gib™</li>
       <li>Have various gear sets (offensive PvP set, defensive PvP set, tank/maximum survival set) and consumables ready</li>
+      <li>Play!</li>
     </ul>
   </div>
 </div>
@@ -66,65 +81,88 @@
         The pointers below will also help in BGs, since lots of encounters there could be seen as a chain of unfair 1v1 or 1vX situations.
       </p>
 
-      <h3>Mage</h3>
-      <ul>
-        <li>RIP</li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-mage);">Mage</h3>
+        <ul>
+          <li>RIP</li>
+          <li>On a serious note: you are down to crit+proc luck or otherwise having the situation in your favor</li>
+          <li>Being a Gnome and having Escape Artist helps</li>
+          <li>Frost/Fire Reflector helps</li>
+        </ul>
+      </div>
 
-      <h3>Warlock</h3>
-      <ul>
-        <li>If Destruction + Succubus: RIP</li>
-        <li>Save Intercept for after Death Coil</li>
-        <li>Shadow Reflector helps</li>
-        <li>Being Undead (WotF) helps</li>
-      </ul>
 
-      <h3>Priest</h3>
-      <ul>
-        <li>Shadow Priest: RIP</li>
-        <li>Other specs: hope for RNG, align big hitters with RNG</li>
-        <li>Mortal Strike helps, so does Death Wish</li>
-        <li>When you pop Recklessness, save the Pummel for Mind Control</li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-warlock);">Warlock</h3>
+        <ul>
+          <li>If Destruction + Succubus: RIP</li>
+          <li>Save Intercept for after Death Coil</li>
+          <li>Shadow Reflector helps</li>
+          <li>Being Undead (WotF) helps</li>
+        </ul>
+      </div>
 
-      <h3>Rogue</h3>
-      <ul>
-        <li></li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-priest);">Priest</h3>
+        <ul>
+          <li>Shadow Priest: RIP</li>
+          <li>Other specs: hope for RNG, align big hitters with RNG</li>
+          <li>Mortal Strike helps, so does Death Wish</li>
+          <li>When you pop Recklessness, save the Pummel for Mind Control</li>
+        </ul>
+      </div>
 
-      <h3>Druid</h3>
-      <ul>
-        <li></li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-rogue);">Rogue (TBD)</h3>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
 
-      <h3>Hunter</h3>
-      <ul>
-        <li>The better your gear gets, the clearer is your advantage</li>
-        <li>1H + Shield while being kited, 2H when you closed the distance</li>
-        <li>Use LoS</li>
-        <li>Frost Reflector helps with trap, so does mocking/taunting the pet</li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-druid);">Druid (TBD)</h3>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
 
-      <h3>Shaman</h3>
-      <ul>
-        <li>Elemental: RIP</li>
-        <li>Try to reflect Frost Shock</li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-hunter);">Hunter</h3>
+        <ul>
+          <li>The better your gear gets, the clearer is your advantage</li>
+          <li>1H + Shield while being kited, 2H when you closed the distance</li>
+          <li>Use LoS</li>
+          <li>Frost Reflector helps with trap, so does mocking/taunting the pet</li>
+        </ul>
+      </div>
 
-      <h3>Paladin</h3>
-      <ul>
-        <li>Reckbombs are not in your favor, hit and run might work</li>
-        <li>Shockadins or Holy+Reck melt your HP in no time, avoid</li>
-        <li>In general: you do not need to fight, just run to your closest base, stay mounted if you are mounted already, mount when the Paladin mounts. Not much they can do about it, use <code>/lol</code> macro</li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-shaman);">Shaman</h3>
+        <ul>
+          <li>Elemental: RIP</li>
+          <li>Try to reflect Frost Shock</li>
+        </ul>
+      </div>
 
-      <h3>Warrior</h3>
-      <ul>
-        <li>RNG fest</li>
-        <li>Have weapon chain(s)</li>
-        <li>Fight with 1H + Shield, defensive playstyle wins here</li>
-        <li>Setup Intercept, switch to 2H and unload all your rage</li>
-      </ul>
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-paladin);">Paladin</h3>
+        <ul>
+          <li>Reckbombs are not in your favor, hit and run might work</li>
+          <li>Shockadins or Holy+Reck melt your HP in no time, avoid</li>
+          <li>In general: you do not need to fight, just run to your closest base, stay mounted if you are mounted already,
+            mount when the Paladin mounts. Not much they can do about it, use <code>/lol</code> macro</li>
+        </ul>
+      </div>
+
+      <div class="card fluid">
+        <h3 style="color: var(--vw-color-warrior);">Warrior</h3>
+        <ul>
+          <li>RNG fest</li>
+          <li>Have weapon chain(s)</li>
+          <li>Fight with 1H + Shield, defensive playstyle wins here</li>
+          <li>Setup Intercept, switch to 2H and unload all your rage</li>
+        </ul>
+      </div>
     </div>
 </div>
 
@@ -145,7 +183,7 @@
       <li>Mace tier: MoM, Sulfuras, TuF</li>
     </ul>
 
-    <h3>Best in Slot, wip</h3>
+    <h3>Best in Slot (TBD)</h3>
     <ul>
       <li>Head: Conq Head </li>
       <li>Neck: Stormrage / ZG neck</li>
@@ -161,12 +199,29 @@
     </ul>
 
     <p>Q: What about fury? A: Fury is not viable due to the lack of Mortal Strike.</p>
+
+    <h3>Gadgets</h3>
+
+    <p>Crafted from other professions than Engineering:</p>
+    <ul>
+      <li><a href="https://classic.wowhead.com/item=10418/glimmering-mithril-insignia" data-wowhead="item=10418&amp;domain=classic" target="_blank">glimmering-mithril-insignia</a> (requires Weaponsmith quest chain)</li>
+      <li><a href="https://classic.wowhead.com/item=7936/ornate-mithril-boots" data-wowhead="item=7936&amp;domain=classic" target="_blank">ornate-mithril-boots</a> (get it from a Blacksmith)</li>
+      <li><a href="https://classic.wowhead.com/item=4328/spider-belt" data-wowhead="item=4328&amp;domain=classic" target="_blank">spider-belt</a> (get it from a Tailor)</li>
+      <li><a href="https://classic.wowhead.com/item=7391/swift-boots" data-wowhead="item=7391&amp;domain=classic" target="_blank">swift-boots</a> (get it from a Leatherworker)</li>
+      <li><a href="https://classic.wowhead.com/item=7052/azure-silk-belt" data-wowhead="item=7052&amp;domain=classic" target="_blank">azure-silk-belt</a> (get it from a Tailor, useful for getting <a href="https://classic.wowhead.com/item=1404/tidal-charm" data-wowhead="item=1404&amp;domain=classic" target="_blank">tidal-charm</a>)</li>
+    </ul>
+
+    <p>Drops:</p>
+    <ul>
+      <li><a href="https://classic.wowhead.com/item=1404/tidal-charm" data-wowhead="item=1404&amp;domain=classic" target="_blank">tidal-charm</a> (have a <a href="guides/nazjak.jpg" target="blank">scout alt</a> with <code>/tar prince</code> macro)</li>
+      <li><a href="https://classic.wowhead.com/item=9452/hydrocane" data-wowhead="item=9452&amp;domain=classic" target="_blank">hydrocane</a> (useful for getting <a href="https://classic.wowhead.com/item=1404/tidal-charm" data-wowhead="item=1404&amp;domain=classic" target="_blank">tidal-charm</a>)</li>
+    </ul>
   </div>
 </div>
 
 <div class="row">
   <div class="col-sm-12">
-    <h2>Useful consumables</h2>
+    <h2>Useful consumables (TBD)</h2>
 
     <h3>On a budget...</h3>
     <ul>
@@ -196,9 +251,11 @@
     <div class="col-sm">
       <p>
         <small>
-          © 2018-2019 by <a href="about.html">Warlord Drak</a><br>
-          <a href="https://discord.gg/W55S8MB">discord.gg/W55S8MB</a>
+          © 2018-2019 by <a href="about.html">Drak</a> | <a href="tools.html">Tools</a> | <a href="about.html#legal">About</a>
         </small>
+      </p>
+      <p>
+      <a href="#"><img src="static/logo.png" src="VanillaWar.com icon" /></a>
       </p>
     </div>
   </footer>
