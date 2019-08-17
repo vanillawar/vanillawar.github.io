@@ -102,7 +102,7 @@ function render_groups(groups) {
         All parameters are passed as URL parameters, like this:
         </p>
 
-        <pre>?rank=9.40&amp;standing=50&amp;players=600</pre>
+        <pre>?rank=9.40&amp;standing=50&amp;players=1500</pre>
 
         <p>
         A <code>rank</code> of <code>9.4</code> means that you are rank 9 and 40% progressed towards rank 10.
@@ -134,9 +134,8 @@ function render_groups(groups) {
         const PARAMETERS = getParameters()
         const STANDING = PARAMETERS.standing
         const CALC_RP = rank2rp(PARAMETERS.rank)
-        const VIEW_RP = CALC_RP
-        const DECAY = VIEW_RP * 0.2
-        const RP_AFTER_DECAY = VIEW_RP - DECAY
+        const DECAY = CALC_RP * 0.2
+        const RP_AFTER_DECAY = CALC_RP - DECAY
         function bracket(standing, groups) {
           var brkt = 1.0
           var upperBound = 1.0
