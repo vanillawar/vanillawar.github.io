@@ -71,10 +71,10 @@ function rank2rp(rank) {
     }
     return 0.0
 }
-function rp2rank(rp, rpfactor=1.0) {
-    if (rp >= 5000.0 * rpfactor) {
-        return rp / (5000.0 * rpfactor) + 2.0
-    } else if (rp >= (2000.0 * rpfactor)) {
+function rp2rank(rp) {
+    if (rp >= 5000.0) {
+        return rp / (5000.0) + 2.0
+    } else if (rp >= (2000.0)) {
         return 2.0
     }
     return 0.0
@@ -85,7 +85,7 @@ function groups(players) {
 function render_groups(groups) {
     rank = 14
     return groups.map((group, idx) =>
-    `Top ${group} standing is bracket ${idx + 1}, gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP (r${rank - idx} cutoff, if rpfactor=1.0)`)
+    `Top ${group} standing is bracket ${idx + 1}, gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP (r${rank - idx} cutoff)`)
 }
 // END HONOR LIB
     </script>
@@ -99,11 +99,10 @@ function render_groups(groups) {
 
         <p>
         Estimates based on your current <code>rank</code> (default <code>7.0</code>), your estimated <code>standing</code> (default <code>100</code>) and an estimate for the total number of <code>players</code> (default <code>2000</code>).
-        Some private servers reduce the amount of RP required for a certain rank. You can control this with the <code>rpfactor</code> parameter (default <code>1.0</code>, neofeenix would be <code>0.67</code>, fenix would be <code>0.5</code>).
         All parameters are passed as URL parameters, like this:
         </p>
 
-        <pre>?rank=9.40&amp;standing=50&amp;players=600&amp;rpfactor=0.5</pre>
+        <pre>?rank=9.40&amp;standing=50&amp;players=600</pre>
 
         <p>
         A <code>rank</code> of <code>9.4</code> means that you are rank 9 and 40% progressed towards rank 10.
@@ -130,14 +129,12 @@ function render_groups(groups) {
             'rank' : Number(url.searchParams.get('rank') || 7.0),
             'standing' : Number(url.searchParams.get('standing') || 100.0),
             'players' : Number(url.searchParams.get('players') || 2000.0),
-            'rpfactor': Number(url.searchParams.get('rpfactor') || 1.0)
           }
         }
         const PARAMETERS = getParameters()
         const STANDING = PARAMETERS.standing
-        const RPFACTOR = PARAMETERS.rpfactor
         const CALC_RP = rank2rp(PARAMETERS.rank)
-        const VIEW_RP = CALC_RP * RPFACTOR
+        const VIEW_RP = CALC_RP
         const DECAY = VIEW_RP * 0.2
         const RP_AFTER_DECAY = VIEW_RP - DECAY
         function bracket(standing, groups) {
@@ -170,16 +167,11 @@ function render_groups(groups) {
         const RP_AFTER_MIN_GAIN = RP_AFTER_DECAY + brkt.lowerRp
         const RP_GAIN_ESTIMATE = (brkt.upperRp - brkt.lowerRp) * standingRelativeToBracket + brkt.lowerRp
         const RP_AFTER_GAIN_ESTIMATE = RP_AFTER_DECAY + RP_GAIN_ESTIMATE
-        const MAX_RANK_AFTER_UPDATE = round2dec(rp2rank(RP_AFTER_MAX_GAIN, RPFACTOR))
-        const MIN_RANK_AFTER_UPDATE = round2dec(rp2rank(RP_AFTER_MIN_GAIN, RPFACTOR))
-        const RANK_ESTIMATE = round2dec(rp2rank(RP_AFTER_GAIN_ESTIMATE, RPFACTOR))
-        get('brackets_list').value = `Currently rank ${round2dec(PARAMETERS.rank)} (${round2dec(CALC_RP)} * ${RPFACTOR} = ${round2dec(VIEW_RP)}), decaying ${round2dec(DECAY)} RP\n`
-        if (RPFACTOR < 1.0) {
-          var rankRPs = [60000.0, 55000.0, 50000.0, 45000.0, 40000.0, 35000.0, 30000.0, 25000.0]
-          for (var i = 0; i < rankRPs.length; i++) {
-            get('brackets_list').value += `With rpfactor of ${RPFACTOR}, reaching r${14 - i} is like going for r${round2dec(rp2rank(rankRPs[i] * RPFACTOR))} (cutoff)\n`
-          }
-        }
+        const MAX_RANK_AFTER_UPDATE = round2dec(rp2rank(RP_AFTER_MAX_GAIN))
+        const MIN_RANK_AFTER_UPDATE = round2dec(rp2rank(RP_AFTER_MIN_GAIN))
+        const RANK_ESTIMATE = round2dec(rp2rank(RP_AFTER_GAIN_ESTIMATE))
+        get('brackets_list').value = `Currently rank ${round2dec(PARAMETERS.rank)} (${round2dec(CALC_RP)} RP), decaying ${round2dec(DECAY)} RP\n`
+
         get('brackets_list').value += `With your estimated standing of ${STANDING}, you will be in bracket: ${brkt.bracket}\n`
         get('brackets_list').value += `Gaining between ${brkt.lowerRp} and ${brkt.upperRp}  RP, estimating RP gain of ${round2dec(RP_GAIN_ESTIMATE)}\n`
         get('brackets_list').value += `Reaching between r${MIN_RANK_AFTER_UPDATE} and r${MAX_RANK_AFTER_UPDATE}, estimating rank ${RANK_ESTIMATE}\n\n`
