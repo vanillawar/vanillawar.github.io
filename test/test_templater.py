@@ -55,6 +55,7 @@ def test_generate():
     <span class="col-sm"><a href="pvp.html">PvP</a></span>
     <span class="col-sm"><a href="gold.html">Gold</a></span>
     <span class="col-sm"><a href="ui-macros.html">UI/Macros</a></span>
+    <span class="col-sm"><a href="tools.html">Tools</a></span>
     <span class="col-sm"><a href="glossary.html">Glossary</a></span>
   </nav>
 
@@ -64,7 +65,7 @@ def test_generate():
     <div class="col-sm">
       <p>
         <small>
-          © 2018-2019 by <a href="about.html">Drak</a> | <a href="tools.html">Tools</a> | <a href="about.html#legal">About</a>
+          © 2018-2019 by <a href="about.html">Drak</a> | <a href="about.html#legal">About</a>
         </small>
       </p>
       <p>
