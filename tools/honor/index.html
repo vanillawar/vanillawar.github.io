@@ -117,8 +117,7 @@ function bracket(standing, groups) {
         'lowerSt': lowerBound,
         'bracket_players': lowerBound - upperBound + 1.0,
         'upperRp': REF_WEEK[brkt - 1],
-        'lowerRp': REF_WEEK[brkt],
-        'rpEstimate': 0.0
+        'lowerRp': REF_WEEK[brkt]
     }
 }
 function estimate(parameters) {
@@ -134,6 +133,7 @@ function estimate(parameters) {
 
     return {
         'RP': CALC_RP,
+        'groups': grps,
         'bracket': brkt,
         'delta': DELTA,
         'newRP': RP_AFTER_GAIN_ESTIMATE,
@@ -198,7 +198,6 @@ function render_groups(groups) {
         if (PARAMETERS.standing > PARAMETERS.players) { PARAMETERS.standing = PARAMETERS.players }
         if (PARAMETERS.standing < 1) { PARAMETERS.standing = 1 }
 
-        const grps = groups(PARAMETERS.players)
         const CALC_RP = rank2rp(PARAMETERS.rank)
 
         const estimation = estimate(PARAMETERS)
@@ -216,7 +215,7 @@ function render_groups(groups) {
         get('brackets_list').value += `Reaching between r${MIN_RANK_AFTER_UPDATE} and r${MAX_RANK_AFTER_UPDATE}, estimating rank ${estimation.newRank} (${round2dec(estimation.newRP)} RP)\n`
         get('brackets_list').value += `\n`
         get('brackets_list').value += `Brackets:\n`
-        get('brackets_list').value += render_groups(grps.slice(0, 8)).join('\n')
+        get('brackets_list').value += render_groups(estimation.groups.slice(0, 8)).join('\n')
             </script>
 
         <div class="row" style="margin-top:0.5em; padding:0em; text-align:center;">
