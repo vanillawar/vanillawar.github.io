@@ -31,7 +31,7 @@ function setText(id, text) {
   get(id).textContent = text
 }
 function round2dec(num) {
-  return num.toFixed(2)
+  return Number(num.toFixed(2))
 }
 // END LIB
 
@@ -113,6 +113,7 @@ function bracket(standing, groups) {
     }
     return {
         'number': brkt,
+        'rankCutoff': Number(14.0 - brkt + 1.0),
         'upperSt': upperBound,
         'lowerSt': lowerBound,
         'players': lowerBound - upperBound + 1.0,
@@ -139,6 +140,7 @@ function estimate(parameters) {
     const MIN_RANK_AFTER_UPDATE = round2dec(rp2rank(RP_AFTER_MIN_GAIN))
 
     return {
+        'parameters': parameters,
         'RP': CALC_RP,
         'groups': grps,
         'bracket': brkt,
@@ -152,6 +154,23 @@ function estimate(parameters) {
         'minNewRank': MIN_RANK_AFTER_UPDATE,
         'maxNewRank': MAX_RANK_AFTER_UPDATE
     }
+}
+function render_projection(estimation) {
+    const bracketNr = estimation.bracket.number
+    let projection = []
+    let weeks = 0
+    let rank = 0
+    let newEstimation = estimation
+    projection.push(`Current week: going from ${estimation.parameters.rank} to ${estimation.newRank}`)
+    do {
+        rank = newEstimation.newRank
+        newEstimation = estimate({'rank': rank, 'standing': estimation.parameters.standing, 'players': estimation.parameters.players})
+        weeks++
+        projection.push(`${weeks} ${(weeks > 1) ? 'weeks' : 'week'} after current: going from ${rank} to ${newEstimation.newRank}`)
+    } while (newEstimation.newRank < 14.0
+                && newEstimation.newRank > rank
+                && Math.floor(newEstimation.newRank) < estimation.bracket.rankCutoff)
+    return projection
 }
 function render_groups(groups) {
     rank = 14
@@ -167,10 +186,6 @@ function render_groups(groups) {
         <noscript><div class="card error fluid">Please activate Javascript to use this site!</div></noscript>
 
         <h1>WoW Classic Honor Calculator</h1>
-
-        <small>
-
-        </small>
 
         <p>
         Estimates based on your current <code>rank</code> (default <code>7.0</code>), your estimated <code>standing</code> (default <code>100</code>) and an estimate for the total number of <code>players</code> (default <code>2000</code>).
@@ -195,13 +210,13 @@ function render_groups(groups) {
 
             <h3>Results</h3>
 
-            <textarea id="brackets_list" style="width:100%;height:23em;font-family:monospace;">
+            <textarea id="brackets_list" style="width:100%;font-family:monospace;">
             </textarea>
 
             <script type="text/javascript">
         function getParameters() {
           const url = new URL(window.location.href)
-          var parameters = {
+          let parameters = {
             'rank' : Number(url.searchParams.get('rank') || 7.0),
             'standing' : Number(url.searchParams.get('standing') || 100.0),
             'players' : Number(url.searchParams.get('players') || 2000.0),
@@ -213,6 +228,7 @@ function render_groups(groups) {
 
         const PARAMETERS = getParameters()
         const estimation = estimate(PARAMETERS)
+        const projection = render_projection(estimation)
 
         get('brackets_list').value = `Currently rank ${round2dec(PARAMETERS.rank)} (${round2dec(estimation.RP)} RP)\n`
         get('brackets_list').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
@@ -221,6 +237,10 @@ function render_groups(groups) {
         get('brackets_list').value += `\n`
         get('brackets_list').value += `Brackets:\n`
         get('brackets_list').value += render_groups(estimation.groups.slice(0, 8)).join('\n')
+        get('brackets_list').value += `\n\n`
+        get('brackets_list').value += `Projected estimation (for standing ${PARAMETERS.standing} at ${PARAMETERS.players} players):\n`
+        get('brackets_list').value += projection.join('\n')
+        get('brackets_list').style.height = get('brackets_list').scrollHeight + 5 + "px"
             </script>
 
         <div class="row" style="margin-top:0.5em; padding:0em; text-align:center;">
