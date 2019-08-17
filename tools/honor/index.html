@@ -192,20 +192,10 @@ function render_groups(groups) {
         All parameters are passed as URL parameters, like this:
         </p>
 
-        <pre>?rank=9.40&amp;standing=50&amp;players=1500</pre>
+        <pre>https://www.vanillawar.com/tools/honor/?rank=9.40&amp;standing=50&amp;players=1500</pre>
 
         <p>
         A <code>rank</code> of <code>9.4</code> means that you are rank 9 and 40% progressed towards rank 10.
-        </p>
-
-        <p>
-        The calculator is not intended for lower ranks.
-        The RP/rank gain estimation is more accurate the closer you are to the center of your bracket.
-        The closer you are to the top of the bracket, the higher the estimation could be (meaning you will probably gain less).
-        The closer you are to the bottom of the bracket, the lower the estimation could be (meaning you will probably gain more).
-        It also depends on how close or far the players at the bracket borders are CP-wise:
-        The greater the gap, the more gain for the bottom player(s) in the higher bracket and the less gain for the top player(s) in the lower bracket.
-        The smaller the gap, the more less for the bottom player(s) in the higher bracket and the more gain for the top player(s) in the lower bracket.
         </p>
 
             <h3>Results</h3>
@@ -242,6 +232,19 @@ function render_groups(groups) {
         get('brackets_list').value += projection.join('\n')
         get('brackets_list').style.height = get('brackets_list').scrollHeight + 5 + "px"
             </script>
+
+<p>
+    <small>Disclaimer:<br>
+        The calculator is not intended for lower ranks.
+        The RP/rank gain estimation is more accurate the closer you are to the center of your bracket.
+        The closer you are to the top of the bracket, the higher the estimation could be (meaning you will probably gain less).
+        The closer you are to the bottom of the bracket, the lower the estimation could be (meaning you will probably gain more).
+        It also depends on how close or far the players at the bracket borders are CP-wise:
+        The greater the gap, the more gain for the bottom player(s) in the higher bracket and the less gain for the top player(s) in the lower bracket.
+        The smaller the gap, the more less for the bottom player(s) in the higher bracket and the more gain for the top player(s) in the lower bracket.
+        The projection is to be taken with a grain of salt, since usually the number of players and your standing are not constant.
+    </small>
+</p>
 
         <div class="row" style="margin-top:0.5em; padding:0em; text-align:center;">
             <div class="col-sm">
