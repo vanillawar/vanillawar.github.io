@@ -201,16 +201,17 @@ function render_groups(groups) {
             <script type="text/javascript">
         function getParameters() {
           const url = new URL(window.location.href)
-          return {
+          var parameters = {
             'rank' : Number(url.searchParams.get('rank') || 7.0),
             'standing' : Number(url.searchParams.get('standing') || 100.0),
             'players' : Number(url.searchParams.get('players') || 2000.0),
           }
+          if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
+          if (parameters.standing < 1) { parameters.standing = 1 }
+          return parameters
         }
-        const PARAMETERS = getParameters()
-        if (PARAMETERS.standing > PARAMETERS.players) { PARAMETERS.standing = PARAMETERS.players }
-        if (PARAMETERS.standing < 1) { PARAMETERS.standing = 1 }
 
+        const PARAMETERS = getParameters()
         const estimation = estimate(PARAMETERS)
 
         get('brackets_list').value = `Currently rank ${round2dec(PARAMETERS.rank)} (${round2dec(estimation.RP)} RP)\n`
