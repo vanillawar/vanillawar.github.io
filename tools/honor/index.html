@@ -134,6 +134,7 @@ function estimate(parameters) {
 
     return {
         'RP': CALC_RP,
+        'bracket': brkt,
         'delta': DELTA,
         'newRP': RP_AFTER_GAIN_ESTIMATE,
         'newRank': RANK_ESTIMATE
@@ -198,7 +199,6 @@ function render_groups(groups) {
         if (PARAMETERS.standing < 1) { PARAMETERS.standing = 1 }
 
         const grps = groups(PARAMETERS.players)
-        const brkt = bracket(PARAMETERS.standing, grps)
         const CALC_RP = rank2rp(PARAMETERS.rank)
 
         const estimation = estimate(PARAMETERS)
@@ -211,8 +211,8 @@ function render_groups(groups) {
         const MIN_RANK_AFTER_UPDATE = round2dec(rp2rank(RP_AFTER_MIN_GAIN))
 
         get('brackets_list').value = `Currently rank ${round2dec(PARAMETERS.rank)} (${round2dec(CALC_RP)} RP)\n`
-        get('brackets_list').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${brkt.bracket}\n`
-        get('brackets_list').value += `Gaining between ${brkt.lowerRp} and ${brkt.upperRp} RP, estimating RP delta of ${round2dec(estimation.delta)}\n`
+        get('brackets_list').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.bracket}\n`
+        get('brackets_list').value += `Gaining between ${estimation.bracket.lowerRp} and ${estimation.bracket.upperRp} RP, estimating RP delta of ${round2dec(estimation.delta)}\n`
         get('brackets_list').value += `Reaching between r${MIN_RANK_AFTER_UPDATE} and r${MAX_RANK_AFTER_UPDATE}, estimating rank ${estimation.newRank} (${round2dec(estimation.newRP)} RP)\n`
         get('brackets_list').value += `\n`
         get('brackets_list').value += `Brackets:\n`
