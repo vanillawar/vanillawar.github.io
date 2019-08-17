@@ -203,8 +203,8 @@ function render_groups(groups) {
 
         const estimation = estimate(PARAMETERS)
 
-        const MAX_DELTA = delta(CALC_RP, brkt.upperRp)
-        const MIN_DELTA = delta(CALC_RP, brkt.lowerRp)
+        const MAX_DELTA = delta(CALC_RP, estimation.bracket.upperRp)
+        const MIN_DELTA = delta(CALC_RP, estimation.bracket.lowerRp)
         const RP_AFTER_MAX_GAIN = CALC_RP + MAX_DELTA
         const RP_AFTER_MIN_GAIN = CALC_RP + MIN_DELTA
         const MAX_RANK_AFTER_UPDATE = round2dec(rp2rank(RP_AFTER_MAX_GAIN))
