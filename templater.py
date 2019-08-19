@@ -2,9 +2,16 @@
 Author: Warlord Drak
 '''
 
+import json
 import os
+import time
 
-def template(title, content):
+def template(snippet):
+    title = snippet.meta.get('title', '')
+    if len(title):
+        title += " | Vanilla Warrior"
+    else:
+        title = "Vanilla Warrior"
     return f'''<!DOCTYPE html>
 <html>
 
@@ -54,7 +61,7 @@ def template(title, content):
     <span class="col-sm"><a href="glossary.html">Glossary</a></span>
   </nav>
 
-{content}
+{snippet.content}
 
   <footer class="row">
     <div class="col-sm">
@@ -74,17 +81,18 @@ def template(title, content):
 </html>
 '''
 
+class Snippet(object):
+    def __init__(self, meta, content):
+        self.meta = meta
+        self.content = content
+
 def main():
     snippet_files = [filename for filename in os.listdir('.') if is_snippet(filename)]
     for snippet_file in snippet_files:
-        content = read_file(snippet_file)
+        snippet = read_file(snippet_file)
         html_file = target_filename(snippet_file)
-        title = html_file.replace(".html", "")
-        if len(title) == 0 or title == 'index':
-            title = "Vanilla Warrior"
-        else:
-            title += " | Vanilla Warrior"
-        rendered = template(title, content)
+        print(time.ctime(os.path.getmtime(snippet_file)) + " " + html_file)
+        rendered = template(snippet)
         write_file(html_file, rendered)
 
 def is_snippet(filename):
@@ -95,7 +103,12 @@ def target_filename(snippet_filename):
 
 def read_file(path):
     with open(path, 'r') as f:
-        return f.read()
+        lines = f.readlines()
+        meta = {}
+        if len(lines) and lines[0].startswith('<!--') and lines[0].endswith('-->\n'):
+            meta = json.loads(lines[0].replace('<!--', '').replace('-->', '').strip())
+            lines = lines[1:]
+        return Snippet(meta, ''.join(lines))
 
 def write_file(path, content):
     with open(path, 'w') as f:
