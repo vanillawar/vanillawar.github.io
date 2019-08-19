@@ -2,27 +2,36 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *;">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
-    <link rel="stylesheet" href="../static/vanillawar.css" />
-    <link rel="shortcut icon" type="image/png" href="../static/logo.png" />
-    <title>Wowhead Link Builder | Vanilla Warrior</title>
-    <meta name="description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
-    <meta name="robots" content="index, follow" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *;">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
+  <link rel="stylesheet" href="../static/vanillawar.css" />
+  <link rel="shortcut icon" type="image/png" href="../static/logo.png" />
+  <title>Wowhead Link Builder | Vanilla Warrior</title>
+  <meta name="description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta name="robots" content="index, follow" />
 
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Wowhead Link Builder | Vanilla Warrior" />
-    <meta property="og:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
-    <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
-    <meta property="twitter:title" content="Wowhead Link Builder | Vanilla Warrior" />
-    <meta property="twitter:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
-    <meta property="twitter:creator" content="@WarlordDrak" />
-    <meta property="twitter:site" content="@WarlordDrak" />
-    <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Wowhead Link Builder | Vanilla Warrior" />
+  <meta property="og:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
+  <meta property="twitter:title" content="Wowhead Link Builder | Vanilla Warrior" />
+  <meta property="twitter:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="twitter:creator" content="@WarlordDrak" />
+  <meta property="twitter:site" content="@WarlordDrak" />
+  <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
 
-    <script>
+  <script src="../static/js/timer.js"></script>
+
+  <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true, hide: {ilvl: true}};</script>
+  <script src="https://wow.zamimg.com/widgets/power.js"></script>
+</head>
+
+<body>
+ <div class="container">
+
+<script>
 function get(elementId) {
     return document.getElementById(elementId);
 }
@@ -71,20 +80,20 @@ function copyToClipboard() {
         }
     }, 3000);
 }
-    </script>
-</head>
+</script>
 
-<body>
-    <div class="container">
-        <h1><a href="https://www.vanillawar.com">&lt;</a> Wowhead Link Builder</h1>
+<h1><a href="https://www.vanillawar.com">&lt;</a> Wowhead Link Builder</h1>
 
-        <input id="input" type="text" style="width:100%;" onchange="buildWowheadLink()">
+<input id="input" type="text" style="width:100%;" onchange="buildWowheadLink()">
 
-        <pre id="output"></pre>
+<pre id="output"></pre>
 
-        <button onclick="copyToClipboard()">Copy!</button>
-        <div id="toaster" class="toast" style="opacity:0;"></div>
-    </div>
+<button onclick="copyToClipboard()">Copy!</button>
+<div id="toaster" class="toast" style="opacity:0;"></div>
+
+
+
+ </div>
 </body>
 
 </html>

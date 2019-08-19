@@ -1,0 +1,60 @@
+<!-- {"title": "Wowhead Link Builder", "rel": "../", "header": false, "footer": false} -->
+<script>
+function get(elementId) {
+    return document.getElementById(elementId);
+}
+function setText(elementId, text) {
+    get(elementId).innerText = text;
+}
+
+function buildWowheadLink() {
+    var input = get("input").value.split(" ");
+
+    var wowheadUrl = input[0]
+    var wowheadUrlParts = wowheadUrl.split("/")
+    var item="item=11110"
+    var linkText = wowheadUrl
+
+    if (wowheadUrlParts.length >= 3) {
+        item = wowheadUrlParts[3];
+    }
+    if (wowheadUrlParts.length >= 4) {
+        linkText = wowheadUrlParts[4];
+    }
+    if (input.length > 1) {
+        linkText = input.slice(1).join(" ");
+    }
+
+    var link =`<a href="${wowheadUrl}" data-wowhead="${item}&amp;domain=classic" target="_blank">${linkText}</a>`
+
+    setText("output", link);
+}
+
+function copyToClipboard() {
+    var range = document.createRange();
+    range.selectNodeContents(get("output"));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    setText("toaster", "Copied!");
+
+    var target = get("toaster");
+    target.style.opacity = 1;
+    var hideToast = setInterval(function () {
+        if (target.style.opacity > 0) {
+            target.style.opacity = 0;
+        } else {
+            clearInterval(hideToast);
+        }
+    }, 3000);
+}
+</script>
+
+<h1><a href="https://www.vanillawar.com">&lt;</a> Wowhead Link Builder</h1>
+
+<input id="input" type="text" style="width:100%;" onchange="buildWowheadLink()">
+
+<pre id="output"></pre>
+
+<button onclick="copyToClipboard()">Copy!</button>
+<div id="toaster" class="toast" style="opacity:0;"></div>
