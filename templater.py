@@ -3,6 +3,7 @@ Author: Warlord Drak
 '''
 
 import glob
+from html import escape
 import json
 import os
 import time
@@ -96,9 +97,10 @@ def main():
     for snippet_file in snippet_files:
         snippet = read_file(snippet_file)
         html_file = target_filename(snippet_file)
-        print(time.ctime(os.path.getmtime(snippet_file)) + " " + snippet_file + " " + html_file)
         rendered = template(snippet)
         write_file(html_file, rendered)
+
+    write_sitemap(snippet_files)
 
 def is_snippet(path):
     return path.split('/')[-1].startswith('snippet.')
@@ -118,6 +120,23 @@ def read_file(path):
 def write_file(path, content):
     with open(path, 'w') as f:
         f.write(content)
+
+BASE_URI = 'https://www.vanillawar.com/'
+def write_sitemap(pages):
+    sitemap_xml = []
+    sitemap_xml.append('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>')
+    sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    pages = sorted([page for page in pages if page != 'snippet.404.html'])
+    for page in pages:
+        html_file = target_filename(page).replace('index.html', '')
+        last_modified = time.strftime('%Y-%m-%d', time.gmtime(os.path.getmtime(page)))
+        sitemap_xml.append(f'  <url>')
+        sitemap_xml.append(f'    <loc>{escape(BASE_URI + html_file)}</loc>')
+        sitemap_xml.append(f'    <lastmod>{last_modified}</lastmod>')
+        sitemap_xml.append(f'  </url>')
+    sitemap_xml.append('</urlset>\n')
+
+    write_file('sitemap.xml', '\n'.join(sitemap_xml))
 
 if __name__ == "__main__":
     main()
