@@ -68,7 +68,7 @@ def template(snippet):
 
 {snippet.content}
 
-  ''' + (f'''<footer class="row">
+''' + (f'''  <footer class="row">
     <div class="col-sm">
       <p>
         <small>
