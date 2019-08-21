@@ -8,6 +8,8 @@ import json
 import os
 import time
 
+DESCRIPTION = 'VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!'
+
 def template(snippet):
     title = snippet.meta.get('title', '')
     if len(title):
@@ -29,15 +31,15 @@ def template(snippet):
   <link rel="stylesheet" href="{rel}static/vanillawar.css" />
   <link rel="shortcut icon" type="image/png" href="{rel}static/logo.png" />
   <title>{title}</title>
-  <meta name="description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta name="description" content="{DESCRIPTION}" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{title}" />
-  <meta property="og:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="og:description" content="{DESCRIPTION}" />
   <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
   <meta property="twitter:title" content="{title}" />
-  <meta property="twitter:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="twitter:description" content="{DESCRIPTION}" />
   <meta property="twitter:creator" content="@WarlordDrak" />
   <meta property="twitter:site" content="@WarlordDrak" />
   <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
