@@ -59,6 +59,7 @@ def template(snippet):
   </a>
 
   <nav class="row">
+  <!--
     <span class="col-sm"><a href="{rel}talents.html">Talents</a></span>
     <span class="col-sm"><a href="{rel}pve-gear.html">PvE/Gear</a></span>
     <span class="col-sm"><a href="{rel}pvp.html">PvP</a></span>
@@ -66,6 +67,7 @@ def template(snippet):
     <span class="col-sm"><a href="{rel}ui-macros.html">UI/Macros</a></span>
     <span class="col-sm"><a href="{rel}tools.html">Tools</a></span>
     <span class="col-sm"><a href="{rel}glossary.html">Glossary</a></span>
+    -->
   </nav>''' if show_header else '') + f'''
 
 {snippet.content}
