@@ -59,7 +59,6 @@ def template(snippet):
   </a>
 
   <nav class="row">
-    <span class="col-sm"><a href="{rel}level.html">Level</a></span>
     <span class="col-sm"><a href="{rel}talents.html">Talents</a></span>
     <span class="col-sm"><a href="{rel}pve-gear.html">PvE/Gear</a></span>
     <span class="col-sm"><a href="{rel}pvp.html">PvP</a></span>
