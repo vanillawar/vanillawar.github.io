@@ -77,7 +77,8 @@ def template(snippet):
     <div class="col-sm">
       <p>
         <small>
-          © 2018-2019 by <a href="{rel}about.html">Drak</a> | <a href="{rel}about.html#legal">About</a> | <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a>
+          © 2018-2019 by <a href="{rel}about.html">Drak</a> | <a href="{rel}about.html#legal">About</a><br>
+          <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a>
         </small>
       </p>
       <p>
