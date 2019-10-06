@@ -59,6 +59,7 @@ def template(snippet):
   </a>
 
   <nav class="row">
+    <span class="col-sm"><a href="{rel}pug/mc/">MC PuG</a></span>
   <!--
     <span class="col-sm"><a href="{rel}talents.html">Talents</a></span>
     <span class="col-sm"><a href="{rel}pve-gear.html">PvE/Gear</a></span>
@@ -76,7 +77,7 @@ def template(snippet):
     <div class="col-sm">
       <p>
         <small>
-          © 2018-2019 by <a href="{rel}about.html">Drak</a> | <a href="{rel}about.html#legal">About</a>
+          © 2018-2019 by <a href="{rel}about.html">Drak</a> | <a href="{rel}about.html#legal">About</a> | <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a>
         </small>
       </p>
       <p>
