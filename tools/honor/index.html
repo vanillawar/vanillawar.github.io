@@ -206,7 +206,7 @@ A <code>rank</code> of <code>9.4</code> means that you are rank 9 and 40% progre
 
 <p>To get your rank and progress ingame, you may execute the following macro:</p>
 
-<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"), "player");rank=rank+GetPVPRankProgress();rankStr = string.format("%.4f", rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
+<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"),"player");rank=rank+GetPVPRankProgress();rankStr=string.format("%.4f",rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
 
     <h3>Results</h3>
 
