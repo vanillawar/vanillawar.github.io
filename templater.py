@@ -59,6 +59,7 @@ def template(snippet):
   </a>
 
   <nav class="row">
+    <span class="col-sm"><a href="{rel}pug/ony/">Onyxia PuG</a></span>
     <span class="col-sm"><a href="{rel}tools/honor/">Honor Calculator</a></span>
   <!--
     <span class="col-sm"><a href="{rel}pug/mc/">MC PuG</a></span>
