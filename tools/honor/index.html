@@ -204,6 +204,10 @@ All parameters are passed as URL parameters, like this:
 A <code>rank</code> of <code>9.4</code> means that you are rank 9 and 40% progressed towards rank 10.
 </p>
 
+<p>To get your rank and progress ingame, you may execute the following macro:</p>
+
+<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"), "player");rank=rank+GetPVPRankProgress();rankStr = string.format("%.4f", rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
+
     <h3>Results</h3>
 
     <textarea id="brackets_list" style="width:100%;font-family:monospace;">
