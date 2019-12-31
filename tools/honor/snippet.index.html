@@ -152,7 +152,7 @@ function render_projection(estimation) {
 function render_groups(groups) {
     rank = 14
     return groups.map((group, idx) =>
-    `Top ${group} standing is bracket ${idx + 1}, gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP (r${rank - idx} cutoff)`)
+    `Top ${group} standing is bracket ${idx + 1} (r${rank - idx} cutoff), gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP`)
 }
 // END HONOR LIB
 </script>
