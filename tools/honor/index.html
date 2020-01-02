@@ -204,7 +204,7 @@ All parameters are passed as URL parameters, like this:
 A <code>rank</code> of <code>9.4</code> means that you are rank 9 and 40% progressed towards rank 10.
 </p>
 
-<p>To get your rank and progress ingame, you may execute the following macro:</p>
+<p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
 
 <pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"),"player");rank=rank+GetPVPRankProgress();rankStr=string.format("%.4f",rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
 
