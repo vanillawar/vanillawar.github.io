@@ -182,12 +182,14 @@ function render_projection(estimation) {
     return projection
 }
 function render_groups(groups) {
-    rank = 14
+    let rank = 14
     return groups.map((group, idx) => {
         if (idx === 0) {
-            return `Top ${group} standings are bracket ${idx + 1} (r${rank - idx} cutoff), gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP`
+            return `Top ${group} standings (${group} slots) are bracket ${idx + 1} (r${rank - idx} cutoff), gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP`
         } else {
-            return `Standings ${groups[idx-1] + 1}-${group} are bracket ${idx + 1} (r${rank - idx} cutoff), gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP`
+            let highEnd = groups[idx-1] + 1;
+            let slots = group - highEnd;
+            return `Standings ${highEnd}-${group} (${slots} slots) are bracket ${idx + 1} (r${rank - idx} cutoff), gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP`
         }
     })
 }
