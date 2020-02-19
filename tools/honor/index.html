@@ -259,6 +259,9 @@ get('brackets_list').style.height = get('brackets_list').scrollHeight + 5 + "px"
         It also depends on how close or far the players at the bracket borders are CP-wise:
         The greater the gap, the more gain for the bottom player(s) in the higher bracket and the less gain for the top player(s) in the lower bracket.
         The smaller the gap, the less gain for the bottom player(s) in the higher bracket and the more gain for the top player(s) in the lower bracket.
+        The estimation does not take into account honor stacking and assumes roughly linear distribution of honor inside a bracket (which would happen naturally without stacking).
+        The calculator can still be used to estimate your progress if you are stacking. To do so, change your standing to the standing you are honor stacking on in your bracket
+        (e.g. if there are 10 bracket 1 slots, and the top 9 players stack on standing 1's honor, the top 9 players may change their standing to standing 1 for calculation/estimation purposes).
         The projection is to be taken with a grain of salt, since usually the number of players and your standing are not constant.<br>
         <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Source (1.12 breakpoints are assumed)</a>
     </small>
