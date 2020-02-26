@@ -79,11 +79,11 @@ const REF_WEEK = [ 13000.0 // top CP score gets top RP score
 function rank2rp(rank) {
     var _rank   = Math.floor(rank)
     if (rank >= 3.0) {
-        return (rank - 2.0) * 5000.0
+        return Math.round((rank - 2.0) * 5000.0)
     } else if (rank >= 2.0) {
-        return 2000 + (rank - 2.0) * 3000
+        return Math.round(2000 + (rank - 2.0) * 3000)
     }
-    return 0.0
+    return 0
 }
 function rp2rank(rp) {
     if (rp >= 5000.0) {
