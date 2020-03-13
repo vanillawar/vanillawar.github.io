@@ -188,7 +188,7 @@ function render_groups(groups) {
             return `Top ${group} standings (${group} slots) are bracket ${idx + 1} (r${rank - idx} cutoff), gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP`
         } else {
             let highEnd = groups[idx-1] + 1;
-            let slots = group - highEnd;
+            let slots = group - highEnd + 1;
             return `Standings ${highEnd}-${group} (${slots} slots) are bracket ${idx + 1} (r${rank - idx} cutoff), gaining ${REF_WEEK[idx+1]} - ${REF_WEEK[idx]} RP`
         }
     })
