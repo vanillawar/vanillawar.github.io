@@ -242,7 +242,7 @@ function render_groups(groups) {
 
 <h1>WoW Classic Honor Calculator</h1>
 
-<form>
+<form id="input">
     <label for="rankOrRp">Rank or RP</label>
     <input type="text" id="rankOrRp" name="rank"><br>
     <label for="standing">Standing</label>
@@ -252,6 +252,8 @@ function render_groups(groups) {
     <label for="gains" style="vertical-align: top;">RP gains<br><small>(one per line)</small></label>
     <textarea id="gains" name="gains" style="font-family:monospace;"></textarea><br>
     <input type="submit" value="Calculate">
+    <input type="button" value="Clear" onclick="get('rankOrRp').value = '';get('standing').value = '';get('poolSize').value = '';get('gains').value = ''">
+    <input type="button" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';" value="Example">
 </form>
 
 <h3>Results</h3>
@@ -263,19 +265,12 @@ function render_groups(groups) {
 function getParameters() {
     const url = new URL(window.location.href)
     let parameters = {
-    'rank': Number(url.searchParams.get('rank') || 9.4),
-    'rp': 0,
-    'standing': Number(url.searchParams.get('standing') || 29.0),
-    'players': Number(url.searchParams.get('players') || 3500.0),
-    'gains': url.searchParams.get('gains').trim() || '',
+        'rank': Number(url.searchParams.get('rank') || 0.0),
+        'rp': 0,
+        'standing': Number(url.searchParams.get('standing') || 1.0),
+        'players': Number(url.searchParams.get('players') || 3500.0),
+        'gains': url.searchParams.get('gains').trim() || '',
     }
-    /*
-    11000
-12000
-12000
-12000
-1000
-    */
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
     if (parameters.standing < 1) { parameters.standing = 1 }
     if (parameters.rank > 15) { // rank is passed as RP value, convert
