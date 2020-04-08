@@ -200,6 +200,16 @@ function render_groups(groups) {
 
 <h1>WoW Classic Honor Calculator</h1>
 
+<form>
+    <label for="rankOrRp">Rank or RP:</label>
+    <input type="text" id="rankOrRp" name="rank"><br>
+    <label for="standing">Standing:</label>
+    <input type="text" id="standing" name="standing"><br>
+    <label for="poolSize">Pool size:</label>
+    <input type="text" id="poolSize" name="players"><br>
+    <input type="submit" value="Calculate">
+</form>
+
 <p>
 Estimates based on your current <code>rank</code> (default <code>9.4</code>), your estimated <code>standing</code> (default <code>50</code>) and an estimate for the total number of <code>players</code> (default <code>3500</code>).
 All parameters are passed as URL parameters, like this:
@@ -226,18 +236,27 @@ function getParameters() {
     const url = new URL(window.location.href)
     let parameters = {
     'rank' : Number(url.searchParams.get('rank') || 9.4),
+    'rp': 0,
     'standing' : Number(url.searchParams.get('standing') || 50.0),
     'players' : Number(url.searchParams.get('players') || 3500.0),
     }
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
     if (parameters.standing < 1) { parameters.standing = 1 }
     if (parameters.rank > 15) { // rank is passed as RP value, convert
+        parameters.rp = parameters.rank
         parameters.rank = rp2rank(parameters.rank)
     }
     return parameters
 }
 
 const PARAMETERS = getParameters()
+if (PARAMETERS.rp !== 0) {
+    get('rankOrRp').value = PARAMETERS.rp
+} else {
+    get('rankOrRp').value = PARAMETERS.rank
+}
+get('standing').value = PARAMETERS.standing
+get('poolSize').value = PARAMETERS.players
 const estimation = estimate(PARAMETERS)
 const projection = render_projection(estimation)
 

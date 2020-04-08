@@ -74,6 +74,11 @@ table {
     max-height: none !important;
 }
 
+label {
+    display: inline-block;
+    width: 6em;
+    text-align: right;
+}​
 
 nav {
     margin: 0em;
