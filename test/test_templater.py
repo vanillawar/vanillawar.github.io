@@ -10,7 +10,10 @@ TEMPLATE = '''
 '''
 
 def test_generate():
-    assert templater.template('title', '<h1>Hy!</h1>') == '''<!DOCTYPE html>
+    generated = templater.template(templater.Snippet({'title': 'title'}, '<h1>Hy!</h1>'))
+
+
+    assert generated.startswith('''<!DOCTYPE html>
 <html>
 
 <head>
@@ -20,16 +23,16 @@ def test_generate():
   <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
   <link rel="stylesheet" href="static/vanillawar.css" />
   <link rel="shortcut icon" type="image/png" href="static/logo.png" />
-  <title>title</title>
-  <meta name="description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <title>title | Vanilla Warrior</title>
+  <meta name="description" content="VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="title" />
-  <meta property="og:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="og:title" content="title | Vanilla Warrior" />
+  <meta property="og:description" content="VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!" />
   <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
-  <meta property="twitter:title" content="title" />
-  <meta property="twitter:description" content="World of Warcraft: Classic (Vanilla) Warrior guides and resources!" />
+  <meta property="twitter:title" content="title | Vanilla Warrior" />
+  <meta property="twitter:description" content="VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!" />
   <meta property="twitter:creator" content="@WarlordDrak" />
   <meta property="twitter:site" content="@WarlordDrak" />
   <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
@@ -42,22 +45,15 @@ def test_generate():
 
 <body>
  <div class="container">
-  <a href="https://www.vanillawar.com/">
+  <a href="https://www.vanillawar.com">
     <div class="banner">
       <img src="static/vanillawar_banner_logo_w_icon_96px.png" alt="Vanilla Warrior Text Logo">
     </div>
   </a>
 
   <nav class="row">
-    <span class="col-sm"><a href="level.html">Level</a></span>
-    <span class="col-sm"><a href="talents.html">Talents</a></span>
-    <span class="col-sm"><a href="pve-gear.html">PvE/Gear</a></span>
-    <span class="col-sm"><a href="pvp.html">PvP</a></span>
-    <span class="col-sm"><a href="gold.html">Gold</a></span>
-    <span class="col-sm"><a href="ui-macros.html">UI/Macros</a></span>
-    <span class="col-sm"><a href="tools.html">Tools</a></span>
-    <span class="col-sm"><a href="glossary.html">Glossary</a></span>
-  </nav>
+''')
+    assert generated.endswith('''  </nav>
 
 <h1>Hy!</h1>
 
@@ -65,7 +61,8 @@ def test_generate():
     <div class="col-sm">
       <p>
         <small>
-          © 2018-2019 by <a href="about.html">Drak</a> | <a href="about.html#legal">About</a>
+          © 2018-2020 by <a href="about.html">Warlord Drak</a> | <a href="about.html#legal">About</a><br>
+          <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a>
         </small>
       </p>
       <p>
@@ -77,4 +74,4 @@ def test_generate():
 </body>
 
 </html>
-'''
+''')
