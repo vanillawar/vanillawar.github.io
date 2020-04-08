@@ -178,14 +178,10 @@ function render_groups(groups) {
     <input type="submit" value="Calculate">
 </form>
 
-<p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
+<h3>Results</h3>
 
-<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"),"player");rank=rank+GetPVPRankProgress();rankStr=string.format("%.4f",rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
-
-    <h3>Results</h3>
-
-    <textarea id="brackets_list" style="width:100%;font-family:monospace;">
-    </textarea>
+<textarea id="brackets_list" style="width:100%;font-family:monospace;">
+</textarea>
 
 <script type="text/javascript">
 function getParameters() {
@@ -245,3 +241,7 @@ get('brackets_list').style.height = get('brackets_list').scrollHeight + 5 + "px"
         <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Source (1.12 breakpoints are assumed, which still hold for WoW Classic)</a>
     </small>
 </p>
+
+<p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
+
+<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"),"player");rank=rank+GetPVPRankProgress();rankStr=string.format("%.4f",rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
