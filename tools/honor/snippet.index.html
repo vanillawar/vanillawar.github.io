@@ -220,7 +220,7 @@ function render_groups(groups) {
     <label for="gains" style="vertical-align: top;">RP gains<br><small>(one per line)</small></label>
     <textarea id="gains" name="gains" style="font-family:monospace;"></textarea><br>
     <input type="submit" value="Calculate">
-    <input type="button" value="Clear" onclick="get('rankOrRp').value = '';get('standing').value = '';get('poolSize').value = '';get('gains').value = ''">
+    <input type="button" value="Clear" onclick="clear()">
     <input type="button" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';" value="Example">
 </form>
 
@@ -230,6 +230,16 @@ function render_groups(groups) {
 </textarea>
 
 <script type="text/javascript">
+function clear() {
+    get('rankOrRp').value = ''
+    get('standing').value = ''
+    get('poolSize').value = ''
+    get('gains').value = ''
+    get('gains').style.height = get('gains').scrollHeight + 5 + "px"
+
+    get('brackets_list').value = ''
+    get('brackets_list').style.height = get('brackets_list').scrollHeight + 5 + "px"
+}
 function getParameters() {
     const url = new URL(window.location.href)
     let parameters = {
