@@ -265,10 +265,10 @@ function render_groups(groups) {
 function getParameters() {
     const url = new URL(window.location.href)
     let parameters = {
-        'rank': Number(url.searchParams.get('rank') || 0.0),
+        'rank': Number(url.searchParams.get('rank') || -1.0),
         'rp': 0,
-        'standing': Number(url.searchParams.get('standing') || 1.0),
-        'players': Number(url.searchParams.get('players') || 3500.0),
+        'standing': Number(url.searchParams.get('standing') || 1),
+        'players': Number(url.searchParams.get('players') || 3500),
         'gains': String(url.searchParams.get('gains') || '').trim(),
     }
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
@@ -286,6 +286,9 @@ function main() {
         get('rankOrRp').value = PARAMETERS.rp
     } else {
         get('rankOrRp').value = PARAMETERS.rank
+    }
+    if (PARAMETERS.rank === -1.0) {
+        return
     }
     get('standing').value = PARAMETERS.standing
     get('poolSize').value = PARAMETERS.players
