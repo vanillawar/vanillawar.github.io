@@ -269,7 +269,7 @@ function getParameters() {
         'rp': 0,
         'standing': Number(url.searchParams.get('standing') || 1.0),
         'players': Number(url.searchParams.get('players') || 3500.0),
-        'gains': url.searchParams.get('gains').trim() || '',
+        'gains': String(url.searchParams.get('gains').trim()) || '',
     }
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
     if (parameters.standing < 1) { parameters.standing = 1 }
