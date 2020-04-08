@@ -210,19 +210,6 @@ function render_groups(groups) {
 
 <h1>WoW Classic Honor Calculator</h1>
 
-<script type="text/javascript">
-function cleanup() {
-    get('rankOrRp').value = ''
-    get('standing').value = ''
-    get('poolSize').value = ''
-    get('gains').value = ''
-    get('gains').style.height = '5em'
-
-    get('brackets_list').value = ''
-    get('brackets_list').style.height = '5em'
-}
-</script>
-
 <form id="input">
     <label for="rankOrRp">Rank or RP</label>
     <input type="text" id="rankOrRp" name="rank"><br>
@@ -233,8 +220,8 @@ function cleanup() {
     <label for="gains" style="vertical-align: top;">RP gains<br><small>(one per line)</small></label>
     <textarea id="gains" name="gains" style="font-family:monospace;"></textarea><br>
     <input type="submit" value="Calculate">
-    <input type="button" value="Clear" onclick="javascript:cleanup()">
-    <input type="button" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';" value="Example">
+    <input type="button" value="Clear" onclick="location.href='https://www.vanillawar.com/tools/honor/'">
+    <input type="button" value="Example" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';">
 </form>
 
 <h3>Results</h3>
