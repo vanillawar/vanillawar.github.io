@@ -165,7 +165,23 @@ function estimate(parameters) {
         'minNewRP': RP_AFTER_MIN_GAIN,
         'maxNewRP': RP_AFTER_MAX_GAIN,
         'minNewRank': MIN_RANK_AFTER_UPDATE,
-        'maxNewRank': MAX_RANK_AFTER_UPDATE
+        'maxNewRank': MAX_RANK_AFTER_UPDATE,
+    }
+}
+function progress(parameters) {
+    const CALC_RP = rank2rp(parameters.rank)
+
+    const DELTA = delta(CALC_RP, parameters.gain)
+    const RP_AFTER_GAIN_ESTIMATE = CALC_RP + DELTA
+    const RANK_ESTIMATE = round4dec(rp2rank(RP_AFTER_GAIN_ESTIMATE))
+
+    return {
+        'rank': parameters.rank,
+        'RP': CALC_RP,
+        'RPgain': parameters.gain,
+        'delta': DELTA,
+        'newRP': RP_AFTER_GAIN_ESTIMATE,
+        'newRank': RANK_ESTIMATE,
     }
 }
 function render_projection(estimation) {
@@ -183,6 +199,28 @@ function render_projection(estimation) {
     } while (newEstimation.newRank < 14.0
                 && newEstimation.newRank > rank
                 && Math.floor(newEstimation.newRank) < estimation.bracket.rankCutoff)
+    return projection
+}
+function render_gains(estimation, gains) {
+    let projection = []
+    let gainsList = gains.split('\n')
+
+    let rank = estimation.parameters.rank
+    for (week = 0; week < gainsList.length; ++week) {
+        let gain = Number(gainsList[week]) || 0
+        if (gain > 13100) {
+            gain = 13100
+        } else if (gain < 0) {
+            gain = 0
+        }
+        let prog = progress({'rank': rank, 'gain': gain})
+        if (week === 0) {
+            projection.push(`Current week: going from ${prog.rank} (${prog.RP} RP) to ${prog.newRank} (${prog.newRP} RP), ${gain} RP gain (${prog.delta} delta)`)
+        } else {
+            projection.push(`${week} ${(week > 1) ? 'weeks' : 'week'} after current: going from ${prog.rank} (${prog.RP} RP) to ${prog.newRank} (${prog.newRP} RP), ${gain} RP gain (${prog.delta} delta)`)
+        }
+        rank = prog.newRank
+    }
     return projection
 }
 function render_groups(groups) {
@@ -205,12 +243,14 @@ function render_groups(groups) {
 <h1>WoW Classic Honor Calculator</h1>
 
 <form>
-    <label for="rankOrRp">Rank or RP:</label>
+    <label for="rankOrRp">Rank or RP</label>
     <input type="text" id="rankOrRp" name="rank"><br>
-    <label for="standing">Standing:</label>
+    <label for="standing">Standing</label>
     <input type="text" id="standing" name="standing"><br>
-    <label for="poolSize">Pool size:</label>
+    <label for="poolSize">Pool size</label>
     <input type="text" id="poolSize" name="players"><br>
+    <label for="gains" style="vertical-align: top;">RP gains<br><small>(one per line)</small></label>
+    <textarea id="gains" name="gains" style="font-family:monospace;"></textarea><br>
     <input type="submit" value="Calculate">
 </form>
 
@@ -223,11 +263,19 @@ function render_groups(groups) {
 function getParameters() {
     const url = new URL(window.location.href)
     let parameters = {
-    'rank' : Number(url.searchParams.get('rank') || 9.4),
+    'rank': Number(url.searchParams.get('rank') || 9.4),
     'rp': 0,
-    'standing' : Number(url.searchParams.get('standing') || 50.0),
-    'players' : Number(url.searchParams.get('players') || 3500.0),
+    'standing': Number(url.searchParams.get('standing') || 29.0),
+    'players': Number(url.searchParams.get('players') || 3500.0),
+    'gains': url.searchParams.get('gains').trim() || '',
     }
+    /*
+    11000
+12000
+12000
+12000
+1000
+    */
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
     if (parameters.standing < 1) { parameters.standing = 1 }
     if (parameters.rank > 15) { // rank is passed as RP value, convert
@@ -245,6 +293,8 @@ if (PARAMETERS.rp !== 0) {
 }
 get('standing').value = PARAMETERS.standing
 get('poolSize').value = PARAMETERS.players
+get('gains').value = PARAMETERS.gains
+get('gains').style.height = get('gains').scrollHeight + 5 + "px"
 const estimation = estimate(PARAMETERS)
 const projection = render_projection(estimation)
 
@@ -258,6 +308,14 @@ get('brackets_list').value += render_groups(estimation.groups.slice(0, 8)).join(
 get('brackets_list').value += `\n\n`
 get('brackets_list').value += `Projected estimation (for standing ${PARAMETERS.standing} at ${PARAMETERS.players} players):\n`
 get('brackets_list').value += projection.join('\n')
+
+if (PARAMETERS.gains.length > 0) {
+    let gains = render_gains(estimation, PARAMETERS.gains)
+    get('brackets_list').value += `\n\n`
+    get('brackets_list').value += `Your progress based on gains you entered:\n`
+    get('brackets_list').value += gains.join('\n')
+}
+
 get('brackets_list').style.height = get('brackets_list').scrollHeight + 5 + "px"
 </script>
 
