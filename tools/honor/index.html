@@ -282,6 +282,7 @@ function getParameters() {
 
 function main() {
     const PARAMETERS = getParameters()
+    get('brackets_list').value = ''
 
     if (PARAMETERS.rank !== -1.0) {
         if (PARAMETERS.rp !== 0) {
@@ -315,7 +316,9 @@ function main() {
         get('gains').style.height = get('gains').scrollHeight + 5 + "px"
 
         let gains = render_gains(PARAMETERS.rank, PARAMETERS.gains)
-        get('brackets_list').value += `\n\n`
+        if (get('brackets_list').value.length > 0) {
+            get('brackets_list').value += `\n\n`
+        }
         get('brackets_list').value += `Your progress based on gains you entered:\n`
         get('brackets_list').value += gains.join('\n')
     }
