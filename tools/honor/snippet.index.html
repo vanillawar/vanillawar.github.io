@@ -298,6 +298,26 @@ main()
 
 <p>
     <small>Disclaimer:<br>
+
+    </small>
+</p>
+
+<p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
+
+<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"),"player");rank=rank+GetPVPRankProgress();rankStr=string.format("%.4f",rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
+
+<div class="card fluid error">
+    <h2>On stacking and bracket sizes</h2>
+    <p>
+        In order for stackers to get the maximum amount of RP out of their bracket,
+        the last standing of each bracket should stack with the stackers of the next lower bracket,
+        so the lower breakpoint falls on the lower bracket stackers' honor.
+        This effectively reduces the number of slots in bracket 1 by one.
+    </p>
+</div>
+<div class="card fluid error">
+    <h2>Disclaimer</h2>
+    <p>
         The RP/rank gain estimation is more accurate the closer you are to the center of your bracket.
         The closer you are to the top of the bracket, the higher the estimation could be (meaning you will probably gain less).
         The closer you are to the bottom of the bracket, the lower the estimation could be (meaning you will probably gain more).
@@ -307,16 +327,9 @@ main()
         The estimation does not take into account honor stacking and assumes roughly linear distribution of honor inside a bracket (which would happen naturally without stacking).
         The calculator can still be used to estimate your progress if you are stacking. To do so, change your standing to the standing you are honor stacking on in your bracket
         (e.g. if there are 10 bracket 1 slots, and the top 9 players stack on standing 1's honor, the top 9 players may change their standing to standing 1 for calculation/estimation purposes).
-        The projection is to be taken with a grain of salt, since usually the number of players and your standing are not constant.<br>
+        The projection is to be taken with a grain of salt, since usually the number of players and your standing are not constant.
+        You are however free to manually estimate and enter your RP gains, the calculated result is then accurate.
+        <br>
         <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Source (1.12 breakpoints are assumed, which still hold for WoW Classic)</a>
-    </small>
-</p>
-
-<p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
-
-<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"),"player");rank=rank+GetPVPRankProgress();rankStr=string.format("%.4f",rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
-
-<div class="card fluid warning">
-    <h2>Regarding bracket sizes and stacking</h2>
-    <p>blub</p>
+    </p>
 </div>
