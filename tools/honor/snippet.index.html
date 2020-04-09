@@ -300,7 +300,7 @@ main()
 
 <p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
 
-<pre>/run _,rank=GetPVPRankInfo(UnitPVPRank("player"),"player");rank=rank+GetPVPRankProgress();rankStr=string.format("%.4f",rank);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rankStr)</pre>
+<pre>/run _,r=GetPVPRankInfo(UnitPVPRank("player"),"player");r=r+GetPVPRankProgress();rs=string.format("%.4f",r);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rs)</pre>
 
 <div class="card fluid error">
     <h2>Regarding bracket slots and honor stacking</h2>
