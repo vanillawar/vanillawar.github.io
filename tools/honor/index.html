@@ -170,7 +170,7 @@ function estimate(parameters) {
 }
 function basic_rank_info(parameters) {
     const rp = rank2rp(parameters.rank)
-    const toNext = (parameters.rank - 1) * 5000 - rp * 0.8
+    const toNext = (Math.floor(parameters.rank) - 1) * 5000 - rp * 0.8
     const decay = rp * 0.2
 
     return {
