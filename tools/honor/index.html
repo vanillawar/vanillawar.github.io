@@ -307,7 +307,7 @@ function main() {
     if (PARAMETERS.rank !== -1.0) {
         const basicInfo = basic_rank_info(PARAMETERS)
 
-        get('brackets_list').value += `Currently rank ${round4dec(basicInfo.rank)} (${rank2rp(basicInfo.RP)} RP)\n`
+        get('brackets_list').value += `Currently rank ${round4dec(basicInfo.rank)} (${basicInfo.RP} RP)\n`
         if (basicInfo.rank > 2 && basicInfo.rank < 14) {
             get('brackets_list').value += `RP for next rank: ${basicInfo.RPtoNext}, RP to not decay: ${basicInfo.RPtoNotDecay}\n`
         }
