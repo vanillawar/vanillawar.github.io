@@ -137,13 +137,15 @@ function estimate(parameters) {
     }
 }
 function basic_rank_info(parameters) {
-    const CALC_RP = rank2rp(parameters.rank)
+    const rp = rank2rp(parameters.rank)
+    const toNext = (parameters.rank - 1) * 5000 - rp * 0.8
+    const decay = rp * 0.2
 
     return {
         'rank': parameters.rank,
-        'RP': CALC_RP,
-        'RPtoNext': 0,
-        'RPtoNotDecay': 0,
+        'RP': rp,
+        'RPtoNext': toNext,
+        'RPtoNotDecay': decay,
     }
 }
 function progress(parameters) {
@@ -274,6 +276,9 @@ function main() {
         const basicInfo = basic_rank_info(parameters)
 
         get('brackets_list').value += `Currently rank ${round4dec(basicInfo.rank)} (${rank2rp(basicInfo.RP)} RP)\n`
+        if (basicInfo.rank > 2 && basicInfo.rank < 14) {
+            get('brackets_list').value += `RP for next rank: ${basicInfo.RPtoNext}, RP to not decay: ${basicInfo.RPtoNotDecay}\n`
+        }
     }
 
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
