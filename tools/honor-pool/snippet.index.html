@@ -1,0 +1,45 @@
+<!-- {"title": "Honor Pool Estimation", "rel": "../../", "header": false} -->
+<script>
+// LIB
+function get(id) {
+  return document.getElementById(id)
+}
+function setText(id, text) {
+  get(id).textContent = text
+}
+function round4dec(num) {
+  return Number(num.toFixed(4))
+}
+function round1dec(num) {
+  return Number(num.toFixed(1))
+}
+// END LIB
+</script>
+
+<noscript><div class="card error fluid">Please activate Javascript to use this site!</div></noscript>
+
+<h1><a href="https://www.vanillawar.com">&lt;</a> WoW Classic Honor Pool Estimation</h1>
+
+<form id="input">
+    <label for="before" style="vertical-align: top;">HonorSpy (before update)</label>
+    <textarea id="before" name="before" style="font-family:monospace;"></textarea><br>
+    <label for="after" style="vertical-align: top;">HonorSpy (after update)</label>
+    <textarea id="after" name="after" style="font-family:monospace;"></textarea><br>
+    <input type="submit" value="Calculate">
+    <input type="button" value="Clear" onclick="location.href='https://www.vanillawar.com/tools/honor-pool/'">
+    <input type="button" value="Example" onclick="location.href='https://www.vanillawar.com/tools/honor-pool/'">
+</form>
+
+<h2>Results</h2>
+
+<textarea id="brackets_list" style="width:100%;font-family:monospace;" readonly>
+</textarea>
+
+<script>
+</script>
+
+<h3>Info</h3>
+
+<p>
+    WIP
+</p>

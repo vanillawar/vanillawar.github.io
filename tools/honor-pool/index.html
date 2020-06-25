@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *;">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css" />
+  <link rel="stylesheet" href="../../static/vanillawar.css" />
+  <link rel="shortcut icon" type="image/png" href="../../static/logo.png" />
+  <title>Honor Pool Estimation | Vanilla Warrior</title>
+  <meta name="description" content="VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Honor Pool Estimation | Vanilla Warrior" />
+  <meta property="og:description" content="VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!" />
+  <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
+  <meta property="twitter:title" content="Honor Pool Estimation | Vanilla Warrior" />
+  <meta property="twitter:description" content="VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!" />
+  <meta property="twitter:creator" content="@WarlordDrak" />
+  <meta property="twitter:site" content="@WarlordDrak" />
+  <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
+
+  <script src="../../static/js/timer.js"></script>
+
+  <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true, hide: {ilvl: true}};</script>
+  <script src="https://wow.zamimg.com/widgets/power.js"></script>
+</head>
+
+<body>
+ <div class="container">
+
+<script>
+// LIB
+function get(id) {
+  return document.getElementById(id)
+}
+function setText(id, text) {
+  get(id).textContent = text
+}
+function round4dec(num) {
+  return Number(num.toFixed(4))
+}
+function round1dec(num) {
+  return Number(num.toFixed(1))
+}
+// END LIB
+</script>
+
+<noscript><div class="card error fluid">Please activate Javascript to use this site!</div></noscript>
+
+<h1><a href="https://www.vanillawar.com">&lt;</a> WoW Classic Honor Pool Estimation</h1>
+
+<form id="input">
+    <label for="before" style="vertical-align: top;">HonorSpy (before update)</label>
+    <textarea id="before" name="before" style="font-family:monospace;"></textarea><br>
+    <label for="after" style="vertical-align: top;">HonorSpy (after update)</label>
+    <textarea id="after" name="after" style="font-family:monospace;"></textarea><br>
+    <input type="submit" value="Calculate">
+    <input type="button" value="Clear" onclick="location.href='https://www.vanillawar.com/tools/honor-pool/'">
+    <input type="button" value="Example" onclick="location.href='https://www.vanillawar.com/tools/honor-pool/'">
+</form>
+
+<h2>Results</h2>
+
+<textarea id="brackets_list" style="width:100%;font-family:monospace;" readonly>
+</textarea>
+
+<script>
+</script>
+
+<h3>Info</h3>
+
+<p>
+    WIP
+</p>
+
+
+  <footer class="row">
+    <div class="col-sm">
+      <p>
+        <small>
+          <a href="../../about.html#legal">About</a><br>
+          <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a><br>
+          © 2018-2020 by <a href="../../about.html">Warlord Drak</a>
+        </small>
+      </p>
+      <p>
+      <a href="https://www.vanillawar.com"><img src="../../static/logo.png" src="VanillaWar.com icon" /></a>
+      </p>
+    </div>
+  </footer>
+ </div>
+</body>
+
+</html>
