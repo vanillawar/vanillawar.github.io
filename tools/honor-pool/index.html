@@ -39,12 +39,6 @@ function get(id) {
 function setText(id, text) {
   get(id).textContent = text
 }
-function round4dec(num) {
-  return Number(num.toFixed(4))
-}
-function round1dec(num) {
-  return Number(num.toFixed(1))
-}
 // END LIB
 </script>
 
@@ -75,6 +69,20 @@ function round1dec(num) {
 <p>
     WIP
 </p>
+
+<script type="text/javascript">
+function getParameters() {
+    const url = new URL(window.location.href)
+    let parameters = {
+        'data': Number(url.searchParams.get('data') || '')
+    }
+    return parameters
+}
+var PARAMS = getParameters()
+if (PARAMS['data'] !== '') {
+  setText('brackets_list', PARAMS['data'])
+}
+</script>
 
 <script src="https://vanillawar-honor-pool.herokuapp.com/warmup.js"></script>
 
