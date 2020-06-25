@@ -70,6 +70,9 @@ function setText(id, text) {
     WIP
 </p>
 
+<script src="https://vanillawar-honor-pool.herokuapp.com/warmup.js"></script>
+<iframe id="data_loader" src="" style="display:none;"></iframe>
+
 <script type="text/javascript">
 function getParameters() {
     const url = new URL(window.location.href)
@@ -80,11 +83,26 @@ function getParameters() {
 }
 var PARAMS = getParameters()
 if (PARAMS['data'] !== '') {
-  setText('brackets_list', PARAMS['data'])
+  var id = PARAMS['data']
+  //setText('brackets_list', PARAMS['data'])
+  fetch(`https://vanillawar-honor-pool.herokuapp.com/data/${id}.txt`)
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+      response.text().then(function(data) {
+        setText('brackets_list', data)
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('fetch error: ', err);
+  });
 }
 </script>
-
-<script src="https://vanillawar-honor-pool.herokuapp.com/warmup.js"></script>
 
 
   <footer class="row">
