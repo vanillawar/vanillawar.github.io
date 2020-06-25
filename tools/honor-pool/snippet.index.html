@@ -42,7 +42,7 @@ function setText(id, text) {
 function getParameters() {
     const url = new URL(window.location.href)
     let parameters = {
-        'data': Number(url.searchParams.get('data') || '')
+        'data': String(url.searchParams.get('data') || '')
     }
     return parameters
 }
