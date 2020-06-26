@@ -26,7 +26,7 @@ function setText(id, text) {
 
 <h2>Results</h2>
 
-<textarea id="brackets_list" style="width:100%;font-family:monospace;" readonly>
+<textarea id="results" style="width:100%;font-family:monospace;" readonly>
 </textarea>
 
 <script>
@@ -52,7 +52,7 @@ function getParameters() {
 var PARAMS = getParameters()
 if (PARAMS['data'] !== '') {
   var id = PARAMS['data']
-  //setText('brackets_list', PARAMS['data'])
+  //setText('results', PARAMS['data'])
   fetch(`https://vanillawar-honor-pool.herokuapp.com/data/${id}.txt`)
   .then(
     function(response) {
@@ -62,7 +62,8 @@ if (PARAMS['data'] !== '') {
         return;
       }
       response.text().then(function(data) {
-        setText('brackets_list', data)
+        setText('results', data)
+        get('results').style.height = get('results').scrollHeight + 5 + "px"
       });
     }
   )
