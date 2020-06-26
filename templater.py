@@ -63,6 +63,7 @@ def template(snippet):
     <span class="col-sm"><a href="{rel}pug/ony/">Onyxia PuG</a></span>
     -->
     <span class="col-sm"><a href="{rel}tools/honor/">Honor Calculator</a></span>
+    <span class="col-sm"><a href="{rel}tools/honor-pool/">Honor Pool Estimation</a></span>
   <!--
     <span class="col-sm"><a href="{rel}guides/honor-system/">Honor System</a></span>
 
