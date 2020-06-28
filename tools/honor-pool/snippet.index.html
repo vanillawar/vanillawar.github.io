@@ -28,6 +28,9 @@ function setText(id, text) {
 
 <h2>Results</h2>
 
+<img src="" id="img_st2rp" alt="Standing to RP" style="display:none;">
+<img src="" id="img_st2honor" alt="Honor per standing" style="display:none;">
+
 <textarea id="results" style="width:100%;font-family:monospace;" readonly>
 </textarea>
 
@@ -66,6 +69,10 @@ if (PARAMS['data'] !== '') {
       response.text().then(function(data) {
         setText('results', data)
         get('results').style.height = get('results').scrollHeight + 5 + "px"
+        get('img_st2rp').src = `https://vanillawar-honor-pool.herokuapp.com/data/${id}_st2rp.png`
+        get('img_st2rp').style.display = 'inherit'
+        get('img_st2honor').src = `https://vanillawar-honor-pool.herokuapp.com/data/${id}_st2honor.png`
+        get('img_st2honor').style.display = 'inherit'
       });
     }
   )
