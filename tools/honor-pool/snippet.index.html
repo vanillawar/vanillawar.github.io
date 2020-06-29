@@ -37,11 +37,27 @@ function setText(id, text) {
 <script>
 </script>
 
-<h3>Info</h3>
+<h3>Instructions</h3>
+
+<ol>
+  <li>Install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon, play and let it record data</li>
+  <li>Before the PvP ends (e.g. Tuesday evening for EU servers), go to "Interface Options" > "AddOns" > select "HonorSpy" and "Export to CSV". Press the button, your client will hang a bit and a popup with data will be shown.
+    Copy&amp;paste this to a <code>.txt</code> file.
+    <img src="hs_export.png" alt="HonorSpy export menu">
+  </li>
+  <li>Do the same after reset, when HonorSpy has been filled with 400, 500 or more entries (if reset is on Wednesday, HonorSpy won't fill before Thursday).
+    Again, save the data in a separate <code>.txt</code> file.</li>
+  <li>Copy&amp;paste the data from the "before update" textfile in the upper box, the data from the "after update" textfile in the lower box. Press "Calculate".</li>
+  <li>(Optional: you may sanitize the data beforehand, since sometimes players sync bogus data in HonorSpy. This will increase accuracy of this tool.)</li>
+</ol>
 
 <p>
-    WIP
+  How to read the graphs:
 </p>
+
+<ul>
+  <li>TODO</li>
+</ul>
 
 <script src="https://vanillawar-honor-pool.herokuapp.com/warmup.js"></script>
 <iframe id="data_loader" src="" style="display:none;"></iframe>
