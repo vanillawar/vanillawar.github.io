@@ -59,6 +59,12 @@ function setText(id, text) {
   <li>
     <p>(Optional: you may sanitize the data beforehand, since sometimes players sync bogus data in HonorSpy. This will increase accuracy of this tool.)</p>
   </li>
+  <li>
+    <p>(Optional: you may enter your own pool size estimate replacing the automatic estimatation.)</p>
+  </li>
+  <li>
+    <p>(Optional: you may enter a custom chart title, so you know what this data was about, e.g. <code>EU Gehennas week 23</code>)</p>
+  </li>
 </ol>
 
 <p>
@@ -66,7 +72,35 @@ function setText(id, text) {
 </p>
 
 <ul>
-  <li><p>TODO</p></li>
+  <li><p>
+    The "standing to RP" chart tells you how many RP players were awarded based on their contribution.
+    It shows, how well honor stacking worked, how big the brackets were and how accurate the pool size estimation is.
+  </p></li>
+  <li><p>
+    The pool size estimation is accurate, if the red crosses land on the green dots/fit the imagined green line.
+    If red crosses are consistently below the green dots, pool size estimation is too low. If the crosses are above the dots, estimation is too high.
+    In those cases, you may want to adjust the pool size manually using the above input field.
+  </p></li>
+  <li><p>
+    The horizontal distance between two red crosses is the number of players fitting the bracket.
+    The vertical distance between two red crosses is the RP boundaries this bracket spans.
+  </p></li>
+  <li><p>
+    Stacking can be considered successful, if the majority of green dots land towards the upper vertical boundary of the bracket.
+    If you are not aware of bracket sizes for stacking purposes, please read the <a href="https://www.vanillawar.com/tools/honor/">warning box over at the Honor Calculator</a>.
+  </p></li>
+  <li><p>
+    Do not worry about some green dots being way off the imagined green line:
+    Those are either fake data or people reaching the RP maximum (60k for r14),
+    thus only getting the difference to the maximum (usually happens in br1 when people need less than 13k RP to reach r14).
+    Sometimes, people get DHKs to directly reduce their rank after they have been done ranking.
+    Since the HonorSpy "after update" data can only be recorded one day later, you may see the green dots of those players below the imagined line.
+  </p></li>
+  <li><p>
+    The "honor per standing" chart complements the "standing to RP" chart.
+    It shows, how much honor the brackets spanned and whether the amount of honor is appropriate.
+    It also helps deducting the amount of honor needed to land in a certain bracket/gain a certain amount of RP.
+  </p></li>
 </ul>
 
 <script src="https://vanillawar-honor-pool.herokuapp.com/warmup.js"></script>
