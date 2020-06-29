@@ -51,6 +51,10 @@ function setText(id, text) {
     <textarea id="before" name="before" style="font-family:monospace;width:100%;"></textarea><br>
     <label for="after" style="vertical-align: top;">HonorSpy<br><small>(after update)</small></label>
     <textarea id="after" name="after" style="font-family:monospace;width:100%;"></textarea><br>
+    <label for="pool">Pool size (optional)</label>
+    <input type="text" id="pool" name="pool"><br>
+    <label for="chart">Chart title (optional)</label>
+    <input type="text" id="chart" name="chart"><br>
     <input type="submit" value="Calculate (takes some time, be patient!)">
     <!--
       <input type="button" value="Clear" onclick="location.href='https://www.vanillawar.com/tools/honor-pool/'">
@@ -65,9 +69,6 @@ function setText(id, text) {
 
 <textarea id="results" style="width:100%;font-family:monospace;" readonly>
 </textarea>
-
-<script>
-</script>
 
 <h2>Instructions</h2>
 
