@@ -291,7 +291,11 @@ function getParameters() {
     }
     return parameters
 }
-
+function padBracketListIfNeeded() {
+    if (get('brackets_list').value.length > 0) {
+        get('brackets_list').value += `\n\n`
+    }
+}
 function main() {
     const PARAMETERS = getParameters()
     get('brackets_list').value = ''
@@ -304,6 +308,7 @@ function main() {
         }
     }
 
+    // Basic rank info
     if (PARAMETERS.rank !== -1.0) {
         const basicInfo = basic_rank_info(PARAMETERS)
 
@@ -313,35 +318,42 @@ function main() {
         }
     }
 
+    const estimation = estimate(PARAMETERS)
+    const projection = render_projection(estimation)
+
+    // Estimation
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
         get('standing').value = PARAMETERS.standing
         get('poolSize').value = PARAMETERS.players
 
-        const estimation = estimate(PARAMETERS)
-        const projection = render_projection(estimation)
-
-        if (get('brackets_list').value.length > 0) {
-            get('brackets_list').value += `\n\n`
-        }
+        padBracketListIfNeeded()
         get('brackets_list').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
         get('brackets_list').value += `Gaining between ${estimation.bracket.lowerRp} and ${estimation.bracket.upperRp} RP, estimating RP gain of ${round1dec(estimation.RPgain)} and RP delta of ${round1dec(estimation.delta)}\n`
-        get('brackets_list').value += `Reaching between r${estimation.minNewRank} and r${estimation.maxNewRank}, estimating rank ${estimation.newRank} (${round4dec(estimation.newRP)} RP)\n`
-        get('brackets_list').value += `\n`
+        get('brackets_list').value += `Reaching between r${estimation.minNewRank} and r${estimation.maxNewRank}, estimating rank ${estimation.newRank} (${round4dec(estimation.newRP)} RP)`
+    }
+
+    // Brackets
+    if (PARAMETERS.players !== -1.0) {
+        padBracketListIfNeeded()
         get('brackets_list').value += `Brackets:\n`
         get('brackets_list').value += render_groups(estimation.groups.slice(0, 8)).join('\n')
-        get('brackets_list').value += `\n\n`
+    }
+
+    // Projection
+    if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
+        padBracketListIfNeeded()
         get('brackets_list').value += `Projected estimation (for standing ${PARAMETERS.standing} at ${PARAMETERS.players} players):\n`
         get('brackets_list').value += projection.join('\n')
     }
 
+    // Gains
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.gains.length > 0) {
         get('gains').value = PARAMETERS.gains
         get('gains').style.height = get('gains').scrollHeight + 5 + "px"
 
         let gains = render_gains(PARAMETERS.rank, PARAMETERS.gains)
-        if (get('brackets_list').value.length > 0) {
-            get('brackets_list').value += `\n\n`
-        }
+
+        padBracketListIfNeeded()
         get('brackets_list').value += `Your progress based on gains you entered:\n`
         get('brackets_list').value += gains.join('\n')
     }
