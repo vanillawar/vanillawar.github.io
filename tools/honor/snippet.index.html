@@ -275,6 +275,9 @@ function main() {
             get('rankOrRp').value = PARAMETERS.rank
         }
     }
+    if (PARAMETERS.players !== -1.0) {
+        get('poolSize').value = PARAMETERS.players
+    }
 
     // Basic rank info (based on rank)
     if (PARAMETERS.rank !== -1.0) {
@@ -292,7 +295,6 @@ function main() {
     // Estimation (based on rank, standing and number of players)
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
         get('standing').value = PARAMETERS.standing
-        get('poolSize').value = PARAMETERS.players
 
         padBracketListIfNeeded()
         get('brackets_list').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
