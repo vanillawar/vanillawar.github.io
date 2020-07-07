@@ -308,7 +308,7 @@ function main() {
         }
     }
 
-    // Basic rank info
+    // Basic rank info (based on rank)
     if (PARAMETERS.rank !== -1.0) {
         const basicInfo = basic_rank_info(PARAMETERS)
 
@@ -321,7 +321,7 @@ function main() {
     const estimation = estimate(PARAMETERS)
     const projection = render_projection(estimation)
 
-    // Estimation
+    // Estimation (based on rank, standing and number of players)
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
         get('standing').value = PARAMETERS.standing
         get('poolSize').value = PARAMETERS.players
@@ -332,21 +332,21 @@ function main() {
         get('brackets_list').value += `Reaching between r${estimation.minNewRank} and r${estimation.maxNewRank}, estimating rank ${estimation.newRank} (${round4dec(estimation.newRP)} RP)`
     }
 
-    // Brackets
+    // Brackets (based on number of players)
     if (PARAMETERS.players !== -1.0) {
         padBracketListIfNeeded()
         get('brackets_list').value += `Brackets:\n`
         get('brackets_list').value += render_groups(estimation.groups.slice(0, 8)).join('\n')
     }
 
-    // Projection
+    // Projection (based on rank, standing and number of players)
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
         padBracketListIfNeeded()
         get('brackets_list').value += `Projected estimation (for standing ${PARAMETERS.standing} at ${PARAMETERS.players} players):\n`
         get('brackets_list').value += projection.join('\n')
     }
 
-    // Gains
+    // Gains (based on rank and gains)
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.gains.length > 0) {
         get('gains').value = PARAMETERS.gains
         get('gains').style.height = get('gains').scrollHeight + 5 + "px"
