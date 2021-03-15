@@ -86,7 +86,7 @@ def template(snippet):
         <small>
           <a href="{rel}about.html#legal">About</a><br>
           <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a><br>
-          © 2018-2020 by <a href="{rel}about.html">Warlord Drak</a>
+          © 2018-2021 by <a href="{rel}about.html">Warlord Drak</a>
         </small>
       </p>
       <p>
