@@ -390,9 +390,10 @@ function main() {
 main()
 </script>
 
-<h3>Info</h3>
+<details>
+    <summary><h3>Info</h3></summary>
 
-<p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
+    <p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
 
 <pre>/run _,r=GetPVPRankInfo(UnitPVPRank("player"),"player");r=r+GetPVPRankProgress();rs=string.format("%.4f",r);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rs)</pre>
 
@@ -423,6 +424,10 @@ main()
         <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Source (1.12 breakpoints are assumed, which still hold for WoW Classic)</a>
     </small>
 </p>
+</details>
+
+
+
 
 
   <footer class="row">
