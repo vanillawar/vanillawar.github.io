@@ -1,4 +1,4 @@
-<!-- {"title": "Honor Pool Estimation", "rel": "../../", "header": false} -->
+<!-- {"title": "Honor Pool Estimation", "rel": "../../"} -->
 <script>
 // LIB
 function get(id) {
@@ -12,7 +12,7 @@ function setText(id, text) {
 
 <noscript><div class="card error fluid">Please activate Javascript to use this site!</div></noscript>
 
-<h1><a href="https://www.vanillawar.com">&lt;</a> WoW Classic Honor Pool Estimation</h1>
+<h1>WoW Classic Honor Pool Estimation</h1>
 
 <form id="input" action="https://vanillawar-honor-pool.herokuapp.com/data" method="post">
     <label for="before" style="vertical-align: top;">HonorSpy<br><small>(before update)</small></label>
@@ -30,7 +30,7 @@ function setText(id, text) {
     -->
 </form>
 
-<h2>Results</h2>
+<h3>Results</h3>
 
 <img src="" id="img_st2rp" alt="Standing to RP" style="display:none;">
 <img src="" id="img_st2honor" alt="Honor per standing" style="display:none;">
@@ -38,87 +38,124 @@ function setText(id, text) {
 <textarea id="results" style="width:100%;font-family:monospace;" readonly>
 </textarea>
 
-<h2>Instructions</h2>
+<h3>Instructions</h3>
 
-<ol>
-  <li>
-    <p>Install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon, play and let it record data.</p>
-  </li>
-  <li>
-    <p>Before the PvP ends (e.g. Tuesday evening for EU servers), go to "Interface Options" > "AddOns" > select "HonorSpy" and "Export to CSV". Press the button, your client will hang a bit and a popup with data will be shown.
-    Copy&amp;paste this to a <code>.txt</code> file.</p>
-    <img src="hs_export.png" alt="HonorSpy export menu">
-  </li>
-  <li>
-    <p>Do the same after reset, when HonorSpy has been filled with 400, 500 or more entries (if reset is on Wednesday, HonorSpy won't fill before Thursday).
-      Again, save the data in a separate <code>.txt</code> file.</p>
-  </li>
-  <li>
-    <p>Copy&amp;paste the data from the "before update" textfile in the upper box, the data from the "after update" textfile in the lower box. Press "Calculate".</p>
-  </li>
-  <li>
-    <p>(Optional: you may sanitize the data beforehand, since sometimes players sync bogus data in HonorSpy. This will increase accuracy of this tool.)</p>
-  </li>
-  <li>
-    <p>(Optional: you may enter your own pool size estimate replacing the automatic estimatation.)</p>
-  </li>
-  <li>
-    <p>(Optional: you may enter a custom chart title, so you know what this data was about, e.g. <code>EU Gehennas week 23</code>)</p>
-  </li>
-</ol>
+<details>
+  <summary>Show more...</summary>
 
-<p>
-  <b>
-    How to read the graphs/results:
-  </b>
-</p>
+  <ol>
+    <li>
+      <p>Install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon, play
+        and let it record data.</p>
+    </li>
+    <li>
+      <p>Before the PvP ends (e.g. Tuesday evening for EU servers), go to "Interface Options" > "AddOns" > select
+        "HonorSpy" and "Export to CSV". Press the button, your client will hang a bit and a popup with data will be
+        shown.
+        Copy&amp;paste this to a <code>.txt</code> file.</p>
+      <img src="hs_export.png" alt="HonorSpy export menu">
+    </li>
+    <li>
+      <p>Do the same after reset, when HonorSpy has been filled with 400, 500 or more entries (if reset is on Wednesday,
+        HonorSpy won't fill before Thursday).
+        Again, save the data in a separate <code>.txt</code> file.</p>
+    </li>
+    <li>
+      <p>Copy&amp;paste the data from the "before update" textfile in the upper box, the data from the "after update"
+        textfile in the lower box. Press "Calculate".</p>
+    </li>
+    <li>
+      <p>(Optional: you may sanitize the data beforehand, since sometimes players sync bogus data in HonorSpy. This will
+        increase accuracy of this tool.)</p>
+    </li>
+    <li>
+      <p>(Optional: you may enter your own pool size estimate replacing the automatic estimatation.)</p>
+    </li>
+    <li>
+      <p>(Optional: you may enter a custom chart title, so you know what this data was about, e.g.
+        <code>EU Gehennas week 23</code>)</p>
+    </li>
+  </ol>
 
-<ul>
-  <li><p>
-    The "standing to RP" chart tells you how many RP players were awarded based on their contribution.
-    It shows, how well honor stacking worked, how big the brackets were and how accurate the pool size estimation is.
-  </p></li>
-  <li><p>
-    The pool size estimation is accurate, if the red crosses land on the green dots/fit the imagined green line.
-    If red crosses are consistently below the green dots, pool size estimation is too low. If the crosses are above the dots, estimation is too high.
-    In those cases, you may want to adjust the pool size manually using the above input field.
-  </p></li>
-  <li><p>
-    The horizontal distance between two red crosses is the number of players fitting the bracket.
-    The vertical distance between two red crosses is the RP boundaries this bracket spans.
-  </p></li>
-  <li><p>
-    Stacking can be considered successful, if the majority of green dots land towards the upper vertical boundary of the bracket.
-    If you are not aware of bracket sizes for stacking purposes, please read the <a href="https://www.vanillawar.com/tools/honor/">warning box over at the Honor Calculator</a>.
-  </p></li>
-  <li><p>
-    Do not worry about some green dots being way off the imagined green line:
-    Those are either fake data or people reaching the RP maximum (60k for r14),
-    thus only getting the difference to the maximum (usually happens in br1 when people need less than 13k RP to reach r14).
-    Sometimes, people get DHKs to directly reduce their rank after they have been done ranking.
-    Since the HonorSpy "after update" data can only be recorded one day later, you may see the green dots of those players below the imagined line.
-  </p></li>
-  <li><p>
-    The "honor per standing" chart complements the "standing to RP" chart.
-    It shows, how much honor the brackets spanned and whether the amount of honor is appropriate.
-    It also helps deducting the amount of honor needed to land in a certain bracket/gain a certain amount of RP.
-  </p></li>
-  <li><p>
-    The textual output shows the estimated pool size, the gains of the top players and players that were high on honor before the update, but have not been tracked by HonorSpy after the update, yet.
-  </p></li>
-  <li><p>
-    This helps you identify potenial bracket breakers and see the exact RP gains.
-  </p></li>
-  <li><p>
-    Players that have a reported RP gain of <code>0</code> may have transferred to your server or are fake entries.
-  </p></li>
-</ul>
-
-<div class="card fluid error">
   <p>
-      Data is regularly wiped on the server, so please keep your textfiles and save the images and results, if you need them for future reference!
+    <b>
+      How to read the graphs/results:
+    </b>
   </p>
-</div>
+
+  <ul>
+    <li>
+      <p>
+        The "standing to RP" chart tells you how many RP players were awarded based on their contribution.
+        It shows, how well honor stacking worked, how big the brackets were and how accurate the pool size estimation
+        is.
+      </p>
+    </li>
+    <li>
+      <p>
+        The pool size estimation is accurate, if the red crosses land on the green dots/fit the imagined green line.
+        If red crosses are consistently below the green dots, pool size estimation is too low. If the crosses are above
+        the dots, estimation is too high.
+        In those cases, you may want to adjust the pool size manually using the above input field.
+      </p>
+    </li>
+    <li>
+      <p>
+        The horizontal distance between two red crosses is the number of players fitting the bracket.
+        The vertical distance between two red crosses is the RP boundaries this bracket spans.
+      </p>
+    </li>
+    <li>
+      <p>
+        Stacking can be considered successful, if the majority of green dots land towards the upper vertical boundary of
+        the bracket.
+        If you are not aware of bracket sizes for stacking purposes, please read the <a
+          href="https://www.vanillawar.com/tools/honor/">warning box over at the Honor Calculator</a>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Do not worry about some green dots being way off the imagined green line:
+        Those are either fake data or people reaching the RP maximum (60k for r14),
+        thus only getting the difference to the maximum (usually happens in br1 when people need less than 13k RP to
+        reach r14).
+        Sometimes, people get DHKs to directly reduce their rank after they have been done ranking.
+        Since the HonorSpy "after update" data can only be recorded one day later, you may see the green dots of those
+        players below the imagined line.
+      </p>
+    </li>
+    <li>
+      <p>
+        The "honor per standing" chart complements the "standing to RP" chart.
+        It shows, how much honor the brackets spanned and whether the amount of honor is appropriate.
+        It also helps deducting the amount of honor needed to land in a certain bracket/gain a certain amount of RP.
+      </p>
+    </li>
+    <li>
+      <p>
+        The textual output shows the estimated pool size, the gains of the top players and players that were high on
+        honor before the update, but have not been tracked by HonorSpy after the update, yet.
+      </p>
+    </li>
+    <li>
+      <p>
+        This helps you identify potenial bracket breakers and see the exact RP gains.
+      </p>
+    </li>
+    <li>
+      <p>
+        Players that have a reported RP gain of <code>0</code> may have transferred to your server or are fake entries.
+      </p>
+    </li>
+  </ul>
+
+  <div class="card fluid error">
+    <p>
+      Data is regularly wiped on the server, so please keep your textfiles and save the images and results, if you need
+      them for future reference!
+    </p>
+  </div>
+</details>
 
 <script src="https://vanillawar-honor-pool.herokuapp.com/warmup.js"></script>
 <iframe id="data_loader" src="" style="display:none;"></iframe>
