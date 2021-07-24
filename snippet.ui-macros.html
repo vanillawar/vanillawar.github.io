@@ -5,8 +5,8 @@
 
     <div class="card error fluid">
         <p>
-          Keep in mind, that WoW Classic uses the modern WoW client API!<br>
-          Most 1.12 macros/addons relying on scripted targeting or spell casting will not work!
+          Keep in mind, that WoW Classic (1.13.*) uses the modern WoW client API!<br>
+          Most Vanilla (1.12) macros/addons relying on scripted targeting or spell casting will not work!
         </p>
     </div>
 
@@ -18,49 +18,66 @@
       <li>Must have addons for PvP: <a href="https://www.curseforge.com/wow/addons/classiccastbars" target="_blank">enemy cast bar</a>, spell warner</li>
     </ul>
 
-    <h2>Macros 1.13.* (Classic)</h2>
+    <h2>Macros</h2>
+
     <p>
-      Start attack:
+      Start attack (1.13):
     </p>
     <pre>#showtooltip
 /startattack
 /cast Mortal Strike</pre>
 
-    <p>
-      Charge/Intercept + Hamstring:
-    </p>
-    <pre>#showtooltip
+      <pre>/script if not IsCurrentAction(72) then UseAction(72) end;
+/cast Mortal Strike
+/cast Shield Slam
+/cast Bloodthirst
+      </pre>
+
+<p>
+  Charge/Intercept + Hamstring (1.13):
+</p>
+<pre>#showtooltip
 /startattack
 /cast [stance:1] Charge; [stance:3] Intercept
 /cast Hamstring</pre>
 
-    <p>
-      One button ranged:
-    </p>
-    <pre>/cast Throw
-/cast Shoot Gun
-/cast Shoot Crossbow
-/cast Shoot Bow</pre>
+<p>
+  One button ranged (1.13):
+</p>
+<pre>/cast [worn:gun] Shoot Gun; [worn:crossbow] Shoot; [worn:bow] Shoot; Throw </pre>
 
-    <p>
-      Weapon equip macros (2H, DW, 1H+Shield, slot 16 is MH, slot 17 is OH):
-    </p>
-    <pre>/stopcasting
+<p>
+  One button ranged (1.12):
+</p>
+<pre>/cast Shoot Gun
+/cast Shoot Crossbow
+/cast Shoot Bow
+/cast Throw
+</pre>
+
+<p>
+  Weapon equip macros (2H, DW, 1H+Shield, slot 16 is MH, slot 17 is OH):
+</p>
+<pre>/stopcasting
 /equip Bonereaver's Edge</pre>
-    <pre>/stopcasting
+<pre>/stopcasting
 /equipslot 16 Tooth of Eranikus
 /equipslot 17 Serathil</pre>
-    <pre>/stopcasting
+<pre>/stopcasting
 /equipslot 16 Tooth of Eranikus
 /equipslot 17 Aegis of Stormwind</pre>
 
-    <h2>Macros 1.12 (Vanilla)</h2>
+<p>
+  Use upper/lower trinket (1.13):
+</p>
+<pre>/use 13
+/use 14</pre>
 
-    <p>
-      Use upper/lower trinket:
-    </p>
-    <pre>/script UseInventoryItem(13);
-/script UseInventoryItem(14);</pre>
+<p>
+  Use upper/lower trinket (1.12):
+</p>
+<pre>/run UseInventoryItem(13);
+/run UseInventoryItem(14);</pre>
 
 <p>
   Reset instances:
