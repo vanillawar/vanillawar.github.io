@@ -64,6 +64,7 @@ def template(snippet):
     -->
     <span class="col-sm"><a href="{rel}tools/honor/">Honor Calculator</a></span>
     <span class="col-sm"><a href="{rel}tools/honor-pool/">Honor Pool Estimation</a></span>
+    <span class="col-sm"><a href="{rel}ui-macros.html">UI/Macros</a></span>
   <!--
     <span class="col-sm"><a href="{rel}guides/honor-system/">Honor System</a></span>
 
@@ -72,7 +73,6 @@ def template(snippet):
     <span class="col-sm"><a href="{rel}pve-gear.html">PvE/Gear</a></span>
     <span class="col-sm"><a href="{rel}pvp.html">PvP</a></span>
     <span class="col-sm"><a href="{rel}gold.html">Gold</a></span>
-    <span class="col-sm"><a href="{rel}ui-macros.html">UI/Macros</a></span>
     <span class="col-sm"><a href="{rel}tools.html">Tools</a></span>
     <span class="col-sm"><a href="{rel}glossary.html">Glossary</a></span>
     -->
