@@ -390,40 +390,53 @@ function main() {
 main()
 </script>
 
+<h3>Info</h3>
+
 <details>
-    <summary><h3>Info</h3></summary>
+    <summary>Show more...</summary>
 
-    <p>To get your rank and progress ingame, you may want to install the <a href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the following macro:</p>
+    <p>To get your rank and progress ingame, you may want to install the <a
+            href="https://www.curseforge.com/wow/addons/honorspy" target="_blank">HonorSpy</a> addon or execute the
+        following macro:</p>
 
-<pre>/run _,r=GetPVPRankInfo(UnitPVPRank("player"),"player");r=r+GetPVPRankProgress();rs=string.format("%.4f",r);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rs)</pre>
+    <pre>/run _,r=GetPVPRankInfo(UnitPVPRank("player"),"player");r=r+GetPVPRankProgress();rs=string.format("%.4f",r);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rs)</pre>
 
-<div class="card fluid error">
-    <h2>Regarding bracket slots and honor stacking</h2>
+    <div class="card fluid error">
+        <h2>Regarding bracket slots and honor stacking</h2>
+        <p>
+            In order for stackers to get the maximum amount of RP out of their bracket,
+            the last standing of each bracket should stack with the next lower bracket,
+            So, brackets span sufficient amounts of honor and breakpoints always fall on the honor of stackers.
+            This effectively reduces the number of slots in bracket 1 by one.
+        </p>
+    </div>
+
     <p>
-        In order for stackers to get the maximum amount of RP out of their bracket,
-        the last standing of each bracket should stack with the next lower bracket,
-        So, brackets span sufficient amounts of honor and breakpoints always fall on the honor of stackers.
-        This effectively reduces the number of slots in bracket 1 by one.
+        <small>Disclaimer:<br>
+            The RP/rank gain estimation is more accurate the closer you are to the center of your bracket.
+            The closer you are to the top of the bracket, the higher the estimation could be (meaning you will probably
+            gain less).
+            The closer you are to the bottom of the bracket, the lower the estimation could be (meaning you will
+            probably gain more).
+            It also depends on how close or far the players at the bracket borders are CP-wise:
+            The greater the gap, the more gain for the bottom player(s) in the higher bracket and the less gain for the
+            top player(s) in the lower bracket.
+            The smaller the gap, the less gain for the bottom player(s) in the higher bracket and the more gain for the
+            top player(s) in the lower bracket.
+            The estimation does not take into account honor stacking and assumes roughly linear distribution of honor
+            inside a bracket (which would happen naturally without stacking).
+            The calculator can still be used to estimate your progress if you are stacking. To do so, change your
+            standing to the standing you are honor stacking on in your bracket
+            (e.g. if there are 10 bracket 1 slots, and the top 9 players stack on standing 1's honor, the top 9 players
+            may change their standing to standing 1 for calculation/estimation purposes).
+            The projection is to be taken with a grain of salt, since usually the number of players and your standing
+            are not constant.
+            You are however free to manually estimate and enter your RP gains, the calculated result is then accurate.
+            <br>
+            <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Source (1.12
+                breakpoints are assumed, which still hold for WoW Classic)</a>
+        </small>
     </p>
-</div>
-
-<p>
-    <small>Disclaimer:<br>
-        The RP/rank gain estimation is more accurate the closer you are to the center of your bracket.
-        The closer you are to the top of the bracket, the higher the estimation could be (meaning you will probably gain less).
-        The closer you are to the bottom of the bracket, the lower the estimation could be (meaning you will probably gain more).
-        It also depends on how close or far the players at the bracket borders are CP-wise:
-        The greater the gap, the more gain for the bottom player(s) in the higher bracket and the less gain for the top player(s) in the lower bracket.
-        The smaller the gap, the less gain for the bottom player(s) in the higher bracket and the more gain for the top player(s) in the lower bracket.
-        The estimation does not take into account honor stacking and assumes roughly linear distribution of honor inside a bracket (which would happen naturally without stacking).
-        The calculator can still be used to estimate your progress if you are stacking. To do so, change your standing to the standing you are honor stacking on in your bracket
-        (e.g. if there are 10 bracket 1 slots, and the top 9 players stack on standing 1's honor, the top 9 players may change their standing to standing 1 for calculation/estimation purposes).
-        The projection is to be taken with a grain of salt, since usually the number of players and your standing are not constant.
-        You are however free to manually estimate and enter your RP gains, the calculated result is then accurate.
-        <br>
-        <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Source (1.12 breakpoints are assumed, which still hold for WoW Classic)</a>
-    </small>
-</p>
 </details>
 
 
