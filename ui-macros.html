@@ -77,20 +77,37 @@
 
     <h2>Macros</h2>
 
+<h3>Start attack</h3>
 <p>
-  Start attack (1.13):
+  1.13:
 </p>
 <pre>#showtooltip
 /startattack
 /cast Mortal Strike</pre>
-
 <p>
-  Start attack (1.12). You need to replace the number (72) with the <a href="#action-bar-slots">location of auto attack on your bars</a>:
+  1.12, you need to replace the number (72) with the <a href="#action-bar-slots">location of auto attack on your bars</a>:
 </p>
 <pre>/script if not IsCurrentAction(72) then UseAction(72) end;
 /cast Mortal Strike
 /cast Shield Slam
 /cast Bloodthirst</pre>
+
+<h3>Stance conditionals</h3>
+
+<p>
+  1.13, switches to Defensive Stance if you aren't in it and casts Disarm.
+  Can be adapted to any other stance (1 Battle Stance, 2 Defensive Stance, 3 Berserker Stance) and skill:
+</p>
+<pre>#showtooltip Disarm
+/cast [nostance:2] Defensive Stance; Disarm</pre>
+<p>
+  1.12:
+</p>
+<pre>/run _,_,a=GetShapeshiftFormInfo(2);if(a==1)then CastSpellByName("Sunder Armor");else CastShapeshiftForm(2) end;</pre>
+<p>
+  1.12, if you don't want to switch stances automatically, but just cast a spell if you are in that stance:
+</p>
+<pre>/run _,_,a=GetShapeshiftFormInfo(2);if(a==1)then CastSpellByName("Disarm");end;</pre>
 
 <p>
   Charge/Intercept + Hamstring (1.13):
@@ -100,6 +117,7 @@
 /cast [stance:1] Charge; [stance:3] Intercept
 /cast Hamstring</pre>
 
+<h3>Ranged</h3>
 <p>
   One button ranged (1.13):
 </p>
@@ -113,6 +131,7 @@
 /cast Shoot Bow
 /cast Throw</pre>
 
+<h3>Weapon swapping</h3>
 <p>
   Weapon equip macros (2H, DW, 1H+Shield, slot 16 is MH, slot 17 is OH):
 </p>
@@ -126,18 +145,23 @@
 /equipslot 17 Aegis of Stormwind</pre>
 
 <p>
-  Use upper/lower trinket (1.13). This also works with other equipment slots and on-use items
+
+</p>
+
+<h3>On-use items</h3>
+<p>
+  1.13, use upper/lower trinket. This also works with other equipment slots and on-use items
   (1 head, 5 chest, 6 belt, 8 feet, 15 back, 17 offhand):
 </p>
 <pre>/use 13
 /use 14</pre>
-
 <p>
-  Use upper/lower trinket (1.12):
+  1.12:
 </p>
 <pre>/run UseInventoryItem(13);
 /run UseInventoryItem(14);</pre>
 
+<h3>Miscellaneous</h3>
 <p>
   Reset instances:
 </p>
