@@ -77,18 +77,20 @@
 
     <h2>Macros</h2>
 
-    <p>
-      Start attack (1.13):
-    </p>
-    <pre>#showtooltip
+<p>
+  Start attack (1.13):
+</p>
+<pre>#showtooltip
 /startattack
 /cast Mortal Strike</pre>
 
-      <pre>/script if not IsCurrentAction(72) then UseAction(72) end;
+<p>
+  Start attack (1.12). You need to replace the number (72) with the <a href="#action-bar-slots">location of auto attack on your bars</a>:
+</p>
+<pre>/script if not IsCurrentAction(72) then UseAction(72) end;
 /cast Mortal Strike
 /cast Shield Slam
-/cast Bloodthirst
-      </pre>
+/cast Bloodthirst</pre>
 
 <p>
   Charge/Intercept + Hamstring (1.13):
@@ -109,8 +111,7 @@
 <pre>/cast Shoot Gun
 /cast Shoot Crossbow
 /cast Shoot Bow
-/cast Throw
-</pre>
+/cast Throw</pre>
 
 <p>
   Weapon equip macros (2H, DW, 1H+Shield, slot 16 is MH, slot 17 is OH):
@@ -125,7 +126,8 @@
 /equipslot 17 Aegis of Stormwind</pre>
 
 <p>
-  Use upper/lower trinket (1.13):
+  Use upper/lower trinket (1.13). This also works with other equipment slots and on-use items
+  (1 head, 5 chest, 6 belt, 8 feet, 15 back, 17 offhand):
 </p>
 <pre>/use 13
 /use 14</pre>
@@ -140,6 +142,13 @@
   Reset instances:
 </p>
 <pre>/script ResetInstances()</pre>
+
+<h3 id="action-bar-slots">Action bar slots</h3>
+
+<a href="https://wowpedia.fandom.com/wiki/Action_slot">Textual form on wowpedia.</a>
+
+<img src="static-ext/action_slots.png" alt="Action bar slots" />
+<p>(Image source: unknown author, Feenix forums, Jan 2012 or older)</p>
 
     <div class="card error fluid" style="text-align: center;">
         <p style="font-size: calc(1rem * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio));font-weight:500;color:white;">KEYBIND EVERYTHING!</p>
