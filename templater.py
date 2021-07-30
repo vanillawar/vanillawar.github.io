@@ -64,6 +64,7 @@ def template(snippet):
     -->
     <span class="col-sm"><a href="{rel}tools/honor/">Honor Calculator</a></span>
     <span class="col-sm"><a href="{rel}tools/honor-pool/">Honor Pool Estimation</a></span>
+    <span class="col-sm"><a href="{rel}checklist/">Checklist</a></span>
     <span class="col-sm"><a href="{rel}ui-macros.html">UI/Macros</a></span>
     <span class="col-sm"><a href="{rel}glossary.html">Glossary</a></span>
   <!--
