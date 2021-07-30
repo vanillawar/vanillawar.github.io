@@ -8,7 +8,7 @@ import json
 import os
 import time
 
-DESCRIPTION = 'VanillaWar.com provides guides and resources focussed on the Warrior class in World of Warcraft Classic!'
+DESCRIPTION = 'VanillaWar.com: guides and resources for the Warrior class in World of Warcraft Classic/Vanilla!'
 
 def template(snippet):
     title = snippet.meta.get('title', '')
