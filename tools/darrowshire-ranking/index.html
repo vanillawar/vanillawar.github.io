@@ -185,6 +185,7 @@ function render_gains(gains) {
     <li>Set <a href="https://github.com/vmangos/core/blob/development/src/game/HonorMgr.cpp#L550">decay</a> to 0</li>
     <li>Since adapting RP per rank requirements may be complicated and unfair, it may be easier to dimish the RP gain per bracket to match a realistic progression.</li>
     <li>E.g. st1/top br1 may just get 5000 RP per week instead of 13000 RP (dimishing factor of <code>~0.3846</code>), thus reaching the required 60k RP after 12 weeks.</li>
+    <li>It's rather easy to implement, since the diminishing factor per bracket just needs to be <a href="https://github.com/vmangos/core/blob/development/src/game/HonorMgr.cpp#L157">multiplied with the earned player RP</a>.</li>
 </ul>
 
 <form id="input">
@@ -205,10 +206,7 @@ function render_gains(gains) {
 function getParameters() {
     const url = new URL(window.location.href)
     let parameters = {
-        'rank': Number(url.searchParams.get('rank') || -1.0),
-        'rp': 0,
-        'standing': Number(url.searchParams.get('standing') || -1.0),
-        'players': Number(url.searchParams.get('players') || -1.0),
+        'f': String(url.searchParams.get('f') || '').trim(),
         'gains': String(url.searchParams.get('gains') || '').trim(),
     }
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
