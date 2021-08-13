@@ -185,7 +185,8 @@ function render_gains(gains) {
     <li>Set <a href="https://github.com/vmangos/core/blob/development/src/game/HonorMgr.cpp#L550">decay</a> to 0</li>
     <li>Since adapting RP per rank requirements may be complicated and unfair, it may be easier to dimish the RP gain per bracket to match a realistic progression.</li>
     <li>E.g. st1/top br1 may just get 5000 RP per week instead of 13000 RP (dimishing factor of <code>~0.3846</code>), thus reaching the required 60k RP after 12 weeks.</li>
-    <li>It's rather easy to implement, since the diminishing factor per bracket just needs to be <a href="https://github.com/vmangos/core/blob/development/src/game/HonorMgr.cpp#L157">multiplied with the earned player RP</a>.</li>
+    <li>It's rather easy to implement, since the diminishing factor per bracket just needs to be <a href="https://github.com/warlorddrak/core/pull/1">multiplied with the earned player RP</a>.</li>
+    <li>Current player rank progress would need to be recalculated, because people progressed lower ranks too fast (without diminishing factors).</li>
 </ul>
 
 <form id="input">
