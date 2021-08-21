@@ -211,3 +211,22 @@ function main() {
 main()
 </script>
 
+<h2>Alternatives</h2>
+
+<p>What else could be done to make ranking more humane? All suggestions can be combined and adapted over the server lifetime.</p>
+
+<h3>No negative delta</h3>
+
+<ul>
+    <li>Easiest to implement, <a href="https://github.com/vmangos/core/blob/development/src/game/HonorMgr.cpp#L554">set this to 0</a> and delete the following if-statement</li>
+    <li>Can pause ranking, as advertised. Won't ever derank</li>
+    <li>For progress, an appropriate bracket still needs to be hit (no guaranteed progress)</li>
+</ul>
+
+<h3>Adapt bracket sizes</h3>
+
+<ul>
+    <li>Easy to implement by <a href="https://github.com/vmangos/core/blob/development/src/game/HonorMgr.cpp#L434">changing the bracket breakpoints</a></li>
+    <li>Needs to be balanced (easy to mess up)</li>
+    <li>Depending on how it's done, it relieves players from pool size boosting</li>
+</ul>
