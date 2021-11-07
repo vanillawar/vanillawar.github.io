@@ -265,6 +265,7 @@ function getParameters() {
         'standing': Number(url.searchParams.get('standing') || -1.0),
         'players': Number(url.searchParams.get('players') || -1.0),
         'gains': String(url.searchParams.get('gains') || '').trim(),
+        'patch': String(url.searchParams.get('p') || '112')
     }
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
     if (parameters.standing < 1) { parameters.standing = 1 }
