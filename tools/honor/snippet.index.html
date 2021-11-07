@@ -204,8 +204,8 @@ function render_gains(rank, gains) {
     let _rank = rank
     for (week = 0; week < gainsList.length; ++week) {
         let gain = Number(gainsList[week]) || 0
-        if (gain > 13100) {
-            gain = 13100
+        if (gain > RP_BRACKETS[0] + 100) {
+            gain = RP_BRACKETS[0] + 100
         } else if (gain < 0) {
             gain = 0
         }
