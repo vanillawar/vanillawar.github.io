@@ -38,11 +38,8 @@ def template(snippet):
   <meta property="og:title" content="{title}" />
   <meta property="og:description" content="{DESCRIPTION}" />
   <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
-  <meta property="twitter:title" content="{title}" />
-  <meta property="twitter:description" content="{DESCRIPTION}" />
   <meta property="twitter:creator" content="@WarlordDrak" />
   <meta property="twitter:site" content="@WarlordDrak" />
-  <meta property="twitter:image" content="https://www.vanillawar.com/static/logo.png" />
 
   <script src="{rel}static/js/timer.js"></script>
 
