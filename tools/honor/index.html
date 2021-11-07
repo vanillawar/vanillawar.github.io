@@ -104,7 +104,7 @@ const BREAK_PTS = [0.003 // r14 as of v1.12
 , 0.845
 , 1.0
 ]
-const RP_BRACKETS = [ 13000.0
+let RP_BRACKETS = [ 13000.0
 , 12000.0 // min r14
 , 11000.0
 , 10000.0
@@ -120,6 +120,7 @@ const RP_BRACKETS = [ 13000.0
 ,   400.0
 ,     0.0
 ]
+let DECAY_RATE = 0.2;
 function rank2rp(rank) {
     var _rank   = Math.floor(rank)
     if (rank >= 3.0) {
@@ -138,7 +139,7 @@ function rp2rank(rp) {
     return 1.0
 }
 function delta(rp, gain) {
-    var decay = Math.floor(Math.round(rp * 0.2))
+    var decay = Math.floor(Math.round(rp * DECAY_RATE))
     var diff = gain - decay
     if (diff < 0) {
         diff /= 2.0
@@ -211,8 +212,8 @@ function estimate(parameters) {
 }
 function basic_rank_info(parameters) {
     const rp = rank2rp(parameters.rank)
-    const toNext = (Math.floor(parameters.rank) - 1) * 5000 - rp * 0.8
-    const decay = rp * 0.2
+    const toNext = (Math.floor(parameters.rank) - 1) * 5000 - rp * (1.0 - DECAY_RATE)
+    const decay = rp * DECAY_RATE
 
     return {
         'rank': parameters.rank,
@@ -380,6 +381,8 @@ function main() {
     switch (PARAMETERS.mode) {
         case 'psom':
             get('psom').checked = true;
+            RP_BRACKETS = RP_BRACKETS.map(rp => rp * 2.0);
+            DECAY_RATE = 0.4;
             break;
         case 'p14':
             get('p14').checked = true;
