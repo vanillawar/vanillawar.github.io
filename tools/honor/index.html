@@ -296,22 +296,57 @@ function render_groups(groups) {
 <h1>WoW Classic Honor Calculator</h1>
 
 <form id="input">
-    <label for="rankOrRp">Rank or RP</label>
-    <input type="text" id="rankOrRp" name="rank"><br>
-    <label for="standing">Standing</label>
-    <input type="text" id="standing" name="standing"><br>
-    <label for="poolSize">Pool size</label>
-    <input type="text" id="poolSize" name="players"><br>
-    <label for="gains" style="vertical-align: top;">RP gains<br><small>(one per line)</small></label>
-    <textarea id="gains" name="gains" style="font-family:monospace;"></textarea><br>
-    <input type="submit" value="Calculate">
-    <input type="button" value="Clear" onclick="location.href='https://www.vanillawar.com/tools/honor/'">
-    <input type="button" value="Example" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';">
+    <div class="row">
+        <div class="col-sm-6">
+            <p>
+                <label for="rankOrRp" class="calcLabel">Rank or RP</label>
+                <input type="text" id="rankOrRp" name="rank">
+            </p>
+
+            <p>
+                <label for="standing" class="calcLabel">Standing</label>
+                <input type="text" id="standing" name="standing">
+            </p>
+
+            <p>
+                <label for="poolSize" class="calcLabel">Pool size</label>
+                <input type="text" id="poolSize" name="players">
+            </p>
+
+            <p>
+                <label for="gains" style="vertical-align: top;" class="calcLabel">RP gains<br><small>(one per line)</small></label>
+                <textarea id="gains" name="gains" style="font-family:monospace;"></textarea><br>
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <p>
+                <fieldset>
+                    <legend>Mode</legend>
+                    <input type="radio" id="p112" name="m" value="p112">
+                    <label for="p112">1.12 or later (incl. Classic, Classic Era)</label><br>
+                    <input type="radio" id="psom" name="m" value="psom">
+                    <label for="psom">Season of Mastery (SoM)</label><br>
+                    <!--
+                        <input type="radio" id="p14" name="m" value="p14">
+                        <label for="p14">pre-1.12</label>
+                    -->
+                </fieldset>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" value="Calculate">
+        <input type="button" value="Clear" onclick="location.href='https://www.vanillawar.com/tools/honor/'">
+        <input type="button" value="Example" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';">
+        <input type="button" value="Example: SoM" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000&m=psom';">
+        <input type="button" value="Example: SoM st1 to r14" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=0.0&standing=1&players=3500&=psom';">
+    </div>
 </form>
 
 <h3>Results</h3>
 
-<textarea id="brackets_list" style="width:100%;font-family:monospace;" readonly>
+<textarea id="results" style="width:100%;font-family:monospace;" readonly>
 </textarea>
 
 <script type="text/javascript">
@@ -323,6 +358,7 @@ function getParameters() {
         'standing': Number(url.searchParams.get('standing') || -1.0),
         'players': Number(url.searchParams.get('players') || -1.0),
         'gains': String(url.searchParams.get('gains') || '').trim(),
+        'mode': String(url.searchParams.get('m') || 'p112')
     }
     if (parameters.standing > parameters.players) { parameters.standing = parameters.players }
     if (parameters.standing < 1) { parameters.standing = 1 }
@@ -333,13 +369,24 @@ function getParameters() {
     return parameters
 }
 function padBracketListIfNeeded() {
-    if (get('brackets_list').value.length > 0) {
-        get('brackets_list').value += `\n\n`
+    if (get('results').value.length > 0) {
+        get('results').value += `\n\n`
     }
 }
 function main() {
     const PARAMETERS = getParameters()
-    get('brackets_list').value = ''
+    get('results').value = ''
+
+    switch (PARAMETERS.mode) {
+        case 'psom':
+            get('psom').checked = true;
+            break;
+        case 'p14':
+            get('p14').checked = true;
+            break;
+        default:
+            get('p112').checked = true;
+    }
 
     if (PARAMETERS.rank !== -1.0) {
         if (PARAMETERS.rp !== 0) {
@@ -356,9 +403,9 @@ function main() {
     if (PARAMETERS.rank !== -1.0) {
         const basicInfo = basic_rank_info(PARAMETERS)
 
-        get('brackets_list').value += `Currently rank ${round4dec(basicInfo.rank)} (${basicInfo.RP} RP)\n`
+        get('results').value += `Currently rank ${round4dec(basicInfo.rank)} (${basicInfo.RP} RP)\n`
         if (basicInfo.rank > 2 && basicInfo.rank < 14) {
-            get('brackets_list').value += `RP for next rank: ${basicInfo.RPtoNext}, RP to not decay: ${basicInfo.RPtoNotDecay}`
+            get('results').value += `RP for next rank: ${basicInfo.RPtoNext}, RP to not decay: ${basicInfo.RPtoNotDecay}`
         }
     }
 
@@ -370,23 +417,23 @@ function main() {
         get('standing').value = PARAMETERS.standing
 
         padBracketListIfNeeded()
-        get('brackets_list').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
-        get('brackets_list').value += `Gaining between ${estimation.bracket.lowerRp} and ${estimation.bracket.upperRp} RP, estimating RP gain of ${round1dec(estimation.RPgain)} and RP delta of ${round1dec(estimation.delta)}\n`
-        get('brackets_list').value += `Reaching between r${estimation.minNewRank} and r${estimation.maxNewRank}, estimating rank ${estimation.newRank} (${round4dec(estimation.newRP)} RP)`
+        get('results').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
+        get('results').value += `Gaining between ${estimation.bracket.lowerRp} and ${estimation.bracket.upperRp} RP, estimating RP gain of ${round1dec(estimation.RPgain)} and RP delta of ${round1dec(estimation.delta)}\n`
+        get('results').value += `Reaching between r${estimation.minNewRank} and r${estimation.maxNewRank}, estimating rank ${estimation.newRank} (${round4dec(estimation.newRP)} RP)`
     }
 
     // Brackets (based on number of players)
     if (PARAMETERS.players !== -1.0) {
         padBracketListIfNeeded()
-        get('brackets_list').value += `Brackets:\n`
-        get('brackets_list').value += render_groups(estimation.groups.slice(0, 8)).join('\n')
+        get('results').value += `Brackets:\n`
+        get('results').value += render_groups(estimation.groups.slice(0, 8)).join('\n')
     }
 
     // Projection (based on rank, standing and number of players)
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
         padBracketListIfNeeded()
-        get('brackets_list').value += `Projected estimation (for standing ${PARAMETERS.standing} at ${PARAMETERS.players} players):\n`
-        get('brackets_list').value += projection.join('\n')
+        get('results').value += `Projected estimation (for standing ${PARAMETERS.standing} at ${PARAMETERS.players} players):\n`
+        get('results').value += projection.join('\n')
     }
 
     // Gains (based on rank and gains)
@@ -397,11 +444,11 @@ function main() {
         let gains = render_gains(PARAMETERS.rank, PARAMETERS.gains)
 
         padBracketListIfNeeded()
-        get('brackets_list').value += `Your progress based on gains you entered:\n`
-        get('brackets_list').value += gains.join('\n')
+        get('results').value += `Your progress based on gains you entered:\n`
+        get('results').value += gains.join('\n')
     }
 
-    get('brackets_list').style.height = get('brackets_list').scrollHeight + 5 + "px"
+    get('results').style.height = get('results').scrollHeight + 5 + "px"
 }
 main()
 </script>
@@ -429,18 +476,8 @@ main()
 
     <p>
         <small>Disclaimer:<br>
-            The RP/rank gain estimation is more accurate the closer you are to the center of your bracket.
-            The closer you are to the top of the bracket, the higher the estimation could be (meaning you will probably
-            gain less).
-            The closer you are to the bottom of the bracket, the lower the estimation could be (meaning you will
-            probably gain more).
-            It also depends on how close or far the players at the bracket borders are CP-wise:
-            The greater the gap, the more gain for the bottom player(s) in the higher bracket and the less gain for the
-            top player(s) in the lower bracket.
-            The smaller the gap, the less gain for the bottom player(s) in the higher bracket and the more gain for the
-            top player(s) in the lower bracket.
             The estimation does not take into account honor stacking and assumes roughly linear distribution of honor
-            inside a bracket (which would happen naturally without stacking).
+            contribution inside a bracket (which would happen naturally without stacking).
             The calculator can still be used to estimate your progress if you are stacking. To do so, change your
             standing to the standing you are honor stacking on in your bracket
             (e.g. if there are 10 bracket 1 slots, and the top 9 players stack on standing 1's honor, the top 9 players
