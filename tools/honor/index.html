@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="../../static/vanillawar.css" />
   <link rel="shortcut icon" type="image/png" href="../../static/logo.png" />
   <title>Honor Calculator | Vanilla Warrior</title>
-  <meta name="description" content="VanillaWar.com: guides and resources for the Warrior class in World of Warcraft Classic/Vanilla!" />
+  <meta name="description" content="VanillaWar.com: tools and resources for the Warrior class in World of Warcraft Classic/Vanilla!" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Honor Calculator | Vanilla Warrior" />
-  <meta property="og:description" content="VanillaWar.com: guides and resources for the Warrior class in World of Warcraft Classic/Vanilla!" />
+  <meta property="og:description" content="VanillaWar.com: tools and resources for the Warrior class in World of Warcraft Classic/Vanilla!" />
   <meta property="og:image" content="https://www.vanillawar.com/static/logo.png" />
   <meta property="twitter:creator" content="@WarlordDrak" />
   <meta property="twitter:site" content="@WarlordDrak" />
@@ -27,32 +27,6 @@
 
 <body>
  <div class="container">
-  <a href="https://www.vanillawar.com">
-    <div class="banner">
-      <img src="../../static/vanillawar_banner_logo_w_icon_96px.png" alt="Vanilla Warrior Text Logo">
-    </div>
-  </a>
-
-  <nav class="row">
-  <!--
-    <span class="col-sm"><a href="../../pug/ony/">Onyxia PuG</a></span>
-    -->
-    <span class="col-sm"><a href="../../tools/honor/">Honor Calculator</a></span>
-    <span class="col-sm"><a href="../../tools/honor-pool/">Honor Pool Estimation</a></span>
-    <span class="col-sm"><a href="../../checklist/">Checklist</a></span>
-    <span class="col-sm"><a href="../../ui-macros.html">UI/Macros</a></span>
-    <span class="col-sm"><a href="../../glossary.html">Glossary</a></span>
-  <!--
-    <span class="col-sm"><a href="../../guides/honor-system/">Honor System</a></span>
-
-    <span class="col-sm"><a href="../../pug/mc/">MC PuG</a></span>
-    <span class="col-sm"><a href="../../talents.html">Talents</a></span>
-    <span class="col-sm"><a href="../../pve-gear.html">PvE/Gear</a></span>
-    <span class="col-sm"><a href="../../pvp.html">PvP</a></span>
-    <span class="col-sm"><a href="../../gold.html">Gold</a></span>
-    <span class="col-sm"><a href="../../tools.html">Tools</a></span>
-    -->
-  </nav>
 
 <script>
 // LIB
@@ -291,7 +265,7 @@ function render_groups(groups) {
 
 <noscript><div class="card error fluid">Please activate Javascript to use this site!</div></noscript>
 
-<h1>WoW Classic Honor Calculator</h1>
+<h1><a href="https://www.vanillawar.com/tools/honor/">WoW Classic</a> Honor Calculator, <a href="https://www.vanillawar.com/tools/honor/?m=psom">SoM Version</a></h1>
 
 <form id="input">
     <div class="row">
@@ -300,17 +274,14 @@ function render_groups(groups) {
                 <label for="rankOrRp" class="calcLabel">Rank or RP</label>
                 <input type="text" id="rankOrRp" name="rank">
             </p>
-
             <p>
                 <label for="standing" class="calcLabel">Standing</label>
                 <input type="text" id="standing" name="standing">
             </p>
-
             <p>
                 <label for="poolSize" class="calcLabel">Pool size</label>
                 <input type="text" id="poolSize" name="players">
             </p>
-
             <p>
                 <label for="gains" style="vertical-align: top;" class="calcLabel">RP gains<br><small>(one per line)</small></label>
                 <textarea id="gains" name="gains" style="font-family:monospace;"></textarea><br>
@@ -330,6 +301,18 @@ function render_groups(groups) {
                     -->
                 </fieldset>
             </p>
+            <p>
+                <fieldset>
+                    <legend>Examples</legend>
+                    <input type="button" value="Bracket sizes" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?players=2300';">
+                    <input type="button" value="Basic rank info" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4';">
+                    <input type="button" value="Week planning" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';">
+                    <input type="button" value="Full" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';"><br>
+                    <input type="button" value="SoM: st1 to r14" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=0.0&standing=1&players=3500&m=psom';">
+                    <input type="button" value="SoM: mid br3 chill" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=0.0&gains=21000%0D%0A21000%0D%0A21000%0D%0A21000%0D%0A21000&m=psom';">
+                    <input type="button" value="SoM: Full" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=22000%0D%0A24000%0D%0A24000%0D%0A24000%0D%0A2000&m=psom';">
+                </fieldset>
+            </p>
         </div>
     </div>
 
@@ -337,10 +320,6 @@ function render_groups(groups) {
         <div class="col-sm-12">
             <input type="submit" value="Calculate" class="primary">
             <input type="button" value="Clear" class="secondary" onclick="location.href='https://www.vanillawar.com/tools/honor/'">
-            <input type="button" value="Example" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';">
-            <input type="button" value="Example: RP gains" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&gains=11000%0D%0A12000%0D%0A12000%0D%0A12000%0D%0A1000';">
-            <input type="button" value="Example: SoM" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=9.4&standing=29&players=3500&gains=22000%0D%0A24000%0D%0A24000%0D%0A24000%0D%0A2000&m=psom';">
-            <input type="button" value="Example: SoM st1 to r14" class="tertiary small" onclick="location.href='https://www.vanillawar.com/tools/honor/?rank=0.0&standing=1&players=3500&m=psom';">
         </div>
     </div>
 </form>
@@ -509,7 +488,7 @@ main()
         </small>
       </p>
       <p>
-      <a href="#"><img src="../../static/logo.png" src="VanillaWar.com icon" /></a>
+      <a href="https://www.vanillawar.com"><img src="../../static/logo.png" src="VanillaWar.com icon" /></a>
       </p>
     </div>
   </footer>
