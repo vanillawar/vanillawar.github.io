@@ -385,7 +385,7 @@ function main() {
         get('standing').value = PARAMETERS.standing
 
         padBracketListIfNeeded()
-        get('results').value += `With standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
+        get('results').value += `With standing ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
         get('results').value += `Gaining between ${estimation.bracket.lowerRp} and ${estimation.bracket.upperRp} RP, estimating RP gain of ${round1dec(estimation.RPgain)} and RP delta of ${round1dec(estimation.delta)}\n`
         get('results').value += `Reaching between r${estimation.minNewRank} and r${estimation.maxNewRank}, estimating rank ${estimation.newRank} (${round4dec(estimation.newRP)} RP)`
     }
