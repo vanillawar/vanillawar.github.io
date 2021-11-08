@@ -428,9 +428,9 @@ main()
 
     <pre>/run _,r=GetPVPRankInfo(UnitPVPRank("player"),"player");r=r+GetPVPRankProgress();rs=string.format("%.4f",r);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rs)</pre>
 
-    <h4>Accuracy of the estimation</h4>
+    <h4>Estimation, honor stacking and bracket slots</h4>
     <p>
-        The estimation does not take into account honor stacking and assumes roughly linear distribution of honor
+        The estimation does not take into account honor stacking and assumes linear distribution of honor
         contribution inside a bracket (which would happen naturally without stacking).
         The calculator can still be used to estimate your progress if you are stacking. To do so, change your
         standing to the standing you are honor stacking on in your bracket
@@ -440,8 +440,6 @@ main()
         are not constant.
         You are however free to manually estimate and enter your RP gains, the calculated result is then accurate.
     </p>
-
-    <h4>Bracket slots and honor stacking</h4>
     <p class="card fluid error">
         In order for stackers to get the maximum amount of RP out of their bracket,
         the last standing of each bracket should stack with the next lower bracket.
