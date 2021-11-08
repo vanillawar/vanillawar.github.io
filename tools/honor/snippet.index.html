@@ -430,26 +430,21 @@ main()
 
     <h4>Accuracy of the estimation</h4>
     <p>
-        <small>Disclaimer:<br>
-            The estimation does not take into account honor stacking and assumes roughly linear distribution of honor
-            contribution inside a bracket (which would happen naturally without stacking).
-            The calculator can still be used to estimate your progress if you are stacking. To do so, change your
-            standing to the standing you are honor stacking on in your bracket
-            (e.g. if there are 10 bracket 1 slots, and the top 9 players stack on standing 1's honor, the top 9 players
-            may change their standing to standing 1 for calculation/estimation purposes).
-            The projection is to be taken with a grain of salt, since usually the number of players and your standing
-            are not constant.
-            You are however free to manually estimate and enter your RP gains, the calculated result is then accurate.
-            <br>
-            <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Source (1.12
-                breakpoints are assumed, which still hold for WoW Classic)</a>
-        </small>
+        The estimation does not take into account honor stacking and assumes roughly linear distribution of honor
+        contribution inside a bracket (which would happen naturally without stacking).
+        The calculator can still be used to estimate your progress if you are stacking. To do so, change your
+        standing to the standing you are honor stacking on in your bracket
+        (e.g. if there are 10 bracket 1 slots, and the top 9 players stack on standing 1's honor, the top 9 players
+        may change their standing to standing 1 for calculation/estimation purposes).
+        The projection is to be taken with a grain of salt, since usually the number of players and your standing
+        are not constant.
+        You are however free to manually estimate and enter your RP gains, the calculated result is then accurate.
     </p>
 
     <h4>Bracket slots and honor stacking</h4>
     <p class="card fluid error">
         In order for stackers to get the maximum amount of RP out of their bracket,
-        the last standing of each bracket should stack with the next lower bracket,
+        the last standing of each bracket should stack with the next lower bracket.
         So, brackets span sufficient amounts of honor and breakpoints always fall on the honor of stackers.
         This effectively reduces the number of slots in bracket 1 by one.
     </p>
@@ -471,6 +466,10 @@ main()
             They may have doubled that as well, so it might be -5000 ("you won't ever lose more than a rank").
         </li>
     </ul>
+
+    <p>
+        <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Formula source</a>
+    </p>
 </details>
 
 
