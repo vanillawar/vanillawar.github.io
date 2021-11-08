@@ -231,10 +231,11 @@ function render_groups(groups) {
         }
     })
 }
+let PARAMETERS = {};
 // END HONOR LIB
 </script>
 
-<noscript><div class="card error fluid">Please activate Javascript to use this site!</div></noscript>
+<noscript><div class="card error fluid">Please activate Javascript to use this tool!</div></noscript>
 
 <h1><a href="https://www.vanillawar.com/tools/honor/">WoW Classic</a> Honor Calculator, <a href="https://www.vanillawar.com/tools/honor/?m=psom">SoM Version</a></h1>
 
@@ -289,7 +290,7 @@ function render_groups(groups) {
     <div class="row">
         <div class="col-sm">
             <input type="submit" value="Calculate" class="primary">
-            <input type="button" value="Clear" class="secondary" onclick="location.href='https://www.vanillawar.com/tools/honor/'">
+            <input type="button" value="Clear" class="secondary" onclick="location.href='https://www.vanillawar.com/tools/honor/?m='+PARAMETERS.mode;">
         </div>
     </div>
 </form>
@@ -324,7 +325,7 @@ function padBracketListIfNeeded() {
     }
 }
 function main() {
-    const PARAMETERS = getParameters()
+    PARAMETERS = getParameters()
     get('results').value = ''
 
     switch (PARAMETERS.mode) {
@@ -338,6 +339,7 @@ function main() {
             BREAK_PTS = OLD_BREAK_PTS;
             break;
         default:
+            PARAMETERS.mode = 'p112';
             get('p112').checked = true;
     }
 
