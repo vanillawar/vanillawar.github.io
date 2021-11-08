@@ -367,9 +367,9 @@ function main() {
     if (PARAMETERS.rank !== -1.0) {
         const basicInfo = basic_rank_info(PARAMETERS)
 
-        get('results').value += `Currently rank ${round4dec(basicInfo.rank)} (${basicInfo.RP} RP)\n`
+        get('results').value += `Currently rank ${round4dec(basicInfo.rank)} (${basicInfo.RP} RP)`
         if (basicInfo.rank > 2 && basicInfo.rank < 14) {
-            get('results').value += `RP for next rank: ${basicInfo.RPtoNext}, RP to not decay: ${basicInfo.RPtoNotDecay}`
+            get('results').value += `\nRP for next rank: ${basicInfo.RPtoNext}, RP to not decay: ${basicInfo.RPtoNotDecay}`
         }
     }
 
