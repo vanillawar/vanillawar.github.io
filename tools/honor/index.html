@@ -260,8 +260,17 @@ function render_groups(groups) {
         }
     })
 }
-let PARAMETERS = {};
 // END HONOR LIB
+</script>
+<script>
+function getSelectedMode() {
+    if (get('psom').checked) {
+        return 'psom';
+    } else if (get('p14').checked) {
+        return 'p14'
+    }
+    return 'p112';
+}
 </script>
 
 <noscript><div class="card error fluid">Please activate Javascript to use this tool!</div></noscript>
@@ -319,7 +328,7 @@ let PARAMETERS = {};
     <div class="row">
         <div class="col-sm">
             <input type="submit" value="Calculate" class="primary">
-            <input type="button" value="Clear" class="secondary" onclick="location.href='https://www.vanillawar.com/tools/honor/?m='+PARAMETERS.mode;">
+            <input type="button" value="Clear" class="secondary" onclick="location.href='https://www.vanillawar.com/tools/honor/?m='+getSelectedMode()">
         </div>
     </div>
 </form>
@@ -354,7 +363,7 @@ function padBracketListIfNeeded() {
     }
 }
 function main() {
-    PARAMETERS = getParameters()
+    let PARAMETERS = getParameters()
     get('results').value = ''
 
     switch (PARAMETERS.mode) {
