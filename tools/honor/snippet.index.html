@@ -31,7 +31,7 @@ const OLD_BREAK_PTS = [0.002 // r14 as of pre-v1.12
 , 0.858
 , 1.0
 ]
-const BREAK_PTS = [0.003 // r14 as of v1.12
+let BREAK_PTS = [0.003 // r14 as of v1.12
 , 0.008
 , 0.020
 , 0.035
@@ -266,10 +266,8 @@ function render_groups(groups) {
                     <label for="p112">1.12 or later (incl. Classic, Classic Era)</label><br>
                     <input type="radio" id="psom" name="m" value="psom">
                     <label for="psom">Season of Mastery (SoM)</label><br>
-                    <!--
-                        <input type="radio" id="p14" name="m" value="p14">
-                        <label for="p14">pre-1.12</label>
-                    -->
+                    <input type="radio" id="p14" name="m" value="p14">
+                    <label for="p14">pre-1.12</label>
                 </fieldset>
             </p>
             <p>
@@ -336,6 +334,7 @@ function main() {
             break;
         case 'p14':
             get('p14').checked = true;
+            BREAK_PTS = OLD_BREAK_PTS;
             break;
         default:
             get('p112').checked = true;
