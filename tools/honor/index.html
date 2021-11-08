@@ -457,16 +457,7 @@ main()
 
     <pre>/run _,r=GetPVPRankInfo(UnitPVPRank("player"),"player");r=r+GetPVPRankProgress();rs=string.format("%.4f",r);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rs)</pre>
 
-    <div class="card fluid error">
-        <h2>Regarding bracket slots and honor stacking</h2>
-        <p>
-            In order for stackers to get the maximum amount of RP out of their bracket,
-            the last standing of each bracket should stack with the next lower bracket,
-            So, brackets span sufficient amounts of honor and breakpoints always fall on the honor of stackers.
-            This effectively reduces the number of slots in bracket 1 by one.
-        </p>
-    </div>
-
+    <h4>Accuracy of the estimation</h4>
     <p>
         <small>Disclaimer:<br>
             The estimation does not take into account honor stacking and assumes roughly linear distribution of honor
@@ -484,11 +475,18 @@ main()
         </small>
     </p>
 
-    <h4>About SoM</h4>
+    <h4>Bracket slots and honor stacking</h4>
+    <p class="card fluid error">
+        In order for stackers to get the maximum amount of RP out of their bracket,
+        the last standing of each bracket should stack with the next lower bracket,
+        So, brackets span sufficient amounts of honor and breakpoints always fall on the honor of stackers.
+        This effectively reduces the number of slots in bracket 1 by one.
+    </p>
 
+    <h4>SoM</h4>
     <p>
-        In a <a href="https://us.forums.blizzard.com/en/wow/t/season-of-mastery-design-intentions-part-2-of-2/1128279">blue post</a>
-        devs explained SoM honor system changes.
+        <a href="https://us.forums.blizzard.com/en/wow/t/season-of-mastery-design-intentions-part-2-of-2/1128279">This blue post</a>
+        explained SoM honor system changes:
 
     </p>
     <ul>
