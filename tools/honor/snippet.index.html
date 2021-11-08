@@ -304,10 +304,14 @@ function getSelectedMode() {
     </div>
 </form>
 
-<h3>Results</h3>
+<h2>Results</h2>
 
-<textarea id="results" style="width:100%;font-family:monospace;" readonly>
-</textarea>
+<div class="row">
+    <div class="col-sm">
+        <textarea id="results" style="width:100%;font-family:monospace;" readonly>
+        </textarea>
+    </div>
+</div>
 
 <script type="text/javascript">
 function getParameters() {
@@ -417,7 +421,7 @@ function main() {
 main()
 </script>
 
-<h3>Info</h3>
+<h2>Info</h2>
 
 <details>
     <summary>Show more...</summary>
@@ -428,7 +432,7 @@ main()
 
     <pre>/run _,r=GetPVPRankInfo(UnitPVPRank("player"),"player");r=r+GetPVPRankProgress();rs=string.format("%.4f",r);DEFAULT_CHAT_FRAME:AddMessage("PvP Rank: "..rs)</pre>
 
-    <h4>Estimation, honor stacking and bracket slots</h4>
+    <h3>Estimation, honor stacking and bracket slots</h3>
     <p>
         The estimation does not take into account honor stacking and assumes linear distribution of honor
         contribution inside a bracket (which would happen naturally without stacking).
@@ -447,7 +451,7 @@ main()
         This effectively reduces the number of slots in bracket 1 by one.
     </p>
 
-    <h4>SoM</h4>
+    <h3>SoM</h3>
     <p>
         <a href="https://us.forums.blizzard.com/en/wow/t/season-of-mastery-design-intentions-part-2-of-2/1128279">This blue post</a>
         explained SoM honor system changes:
@@ -469,6 +473,3 @@ main()
         <a href="https://wowwiki.fandom.com/wiki/Honor_system_(pre-2.0_formulas)" target="_blank">Formula source</a>
     </p>
 </details>
-
-
-
