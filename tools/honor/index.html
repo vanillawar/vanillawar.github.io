@@ -414,7 +414,7 @@ function main() {
         get('standing').value = PARAMETERS.standing
 
         padBracketListIfNeeded()
-        get('results').value += `With your estimated standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
+        get('results').value += `With standing of ${PARAMETERS.standing} of ${PARAMETERS.players} players, you will be in bracket: ${estimation.bracket.number}\n`
         get('results').value += `Gaining between ${estimation.bracket.lowerRp} and ${estimation.bracket.upperRp} RP, estimating RP gain of ${round1dec(estimation.RPgain)} and RP delta of ${round1dec(estimation.delta)}\n`
         get('results').value += `Reaching between r${estimation.minNewRank} and r${estimation.maxNewRank}, estimating rank ${estimation.newRank} (${round4dec(estimation.newRP)} RP)`
     }
@@ -429,7 +429,7 @@ function main() {
     // Projection (based on rank, standing and number of players)
     if (PARAMETERS.rank !== -1.0 && PARAMETERS.standing !== -1.0 && PARAMETERS.players !== -1.0) {
         padBracketListIfNeeded()
-        get('results').value += `Projected estimation (for standing ${PARAMETERS.standing} at ${PARAMETERS.players} players):\n`
+        get('results').value += `Projected progress estimation (for standing ${PARAMETERS.standing} of ${PARAMETERS.players} players):\n`
         get('results').value += projection.join('\n')
     }
 
@@ -441,7 +441,7 @@ function main() {
         let gains = render_gains(PARAMETERS.rank, PARAMETERS.gains)
 
         padBracketListIfNeeded()
-        get('results').value += `Your progress based on gains you entered:\n`
+        get('results').value += `Your progress based on entered RP gains:\n`
         get('results').value += gains.join('\n')
     }
 
