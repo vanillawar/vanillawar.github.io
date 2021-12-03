@@ -278,7 +278,10 @@ function getSelectedMode() {
                     <label for="p14">pre-1.12</label>
                     <br>
                     <input type="radio" id="psom" name="m" value="psom">
-                    <label for="psom">Season of Mastery (SoM)</label>
+                    <label for="psom">Season of Mastery (SoM, 2x RP gain, 40% decay)</label>
+                    <br>
+                    <input type="radio" id="psomKEK" name="m" value="psomKEK">
+                    <label for="psomKEK">SoM Small Indie Company Edition™ (2x RP gain, 20% decay)</label>
                 </fieldset>
             </p>
             <p>
@@ -346,6 +349,10 @@ function main() {
             get('psom').checked = true;
             RP_BRACKETS = RP_BRACKETS.map(rp => rp * 2.0);
             DECAY_RATE = 0.4;
+            break;
+        case 'psomKEK':
+            get('psomKEK').checked = true;
+            RP_BRACKETS = RP_BRACKETS.map(rp => rp * 2.0);
             break;
         case 'p14':
             get('p14').checked = true;
@@ -487,6 +494,13 @@ main()
         So if you got some HKs in SoM a few hours before the first honor update, you likely weren't on a high level.
         Below level 30, you are capped at 6500 RP total (rank 3.30).
         The calculator does not take your level into account and does not consider RP limits per level.
+    </p>
+
+    <h3>Update 2021-12-03: SoM Honor System Bugs</h3>
+    <p>
+        Looks like small indie company messed up again.
+
+        Maybe should have not used beta for streamer promo, but to actually test things?
     </p>
 
     <p>
