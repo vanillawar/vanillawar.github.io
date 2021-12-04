@@ -279,6 +279,10 @@ function getSelectedMode() {
                     <br>
                     <input type="radio" id="psom" name="m" value="psom">
                     <label for="psom">Season of Mastery (SoM)</label>
+                    <span style="display:none">
+                        <input type="radio" id="psomKEK" name="m" value="psomKEK">
+                        <label for="psomKEK">SoM Small Indie Company Edition™ (2x RP gain, 20% decay)</label>
+                    </span>
                 </fieldset>
             </p>
             <p>
@@ -348,9 +352,7 @@ function main() {
             DECAY_RATE = 0.4;
             break;
         case 'psomKEK':
-            get('p14').checked = false;
-            get('p112').checked = false;
-            get('psom').checked = false;
+            get('psomKEK').checked = true;
             RP_BRACKETS = RP_BRACKETS.map(rp => rp * 2.0);
             break;
         case 'p14':
