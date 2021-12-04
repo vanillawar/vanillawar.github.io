@@ -279,9 +279,7 @@ function getSelectedMode() {
                     <br>
                     <input type="radio" id="psom" name="m" value="psom">
                     <label for="psom">Season of Mastery (SoM, 2x RP gain, 40% decay)</label>
-                    <br>
-                    <input type="radio" id="psomKEK" name="m" value="psomKEK">
-                    <label for="psomKEK">SoM Small Indie Company Edition™ (2x RP gain, 20% decay)</label>
+                    <input type="hidden" id="psomKEK" name="m" value="psomKEK">
                 </fieldset>
             </p>
             <p>
@@ -351,7 +349,9 @@ function main() {
             DECAY_RATE = 0.4;
             break;
         case 'psomKEK':
-            get('psomKEK').checked = true;
+            get('p14').checked = false;
+            get('p112').checked = false;
+            get('psom').checked = false;
             RP_BRACKETS = RP_BRACKETS.map(rp => rp * 2.0);
             break;
         case 'p14':
@@ -497,7 +497,7 @@ main()
     </p>
     <p>
         Some SoM servers launched a few hours before the first honor update.
-        <a href="https://www.vanillawar.com/tools/honor/?rank=0&standing=&players=&gains=6500%0D%0A26000%0D%0A26000%0D%0A26000%0D%0A26000%0D%0A26000&m=psom">Players who took advantage of this and PvP'd in lvl10-19 WSG may progress like this (st1 capped to r3.3 first update and getting full RP the later weeks).</a>
+        Players who took advantage of this and PvP'd in lvl10-19 WSG may progress <a href="https://www.vanillawar.com/tools/honor/?rank=0&standing=&players=&gains=6500%0D%0A26000%0D%0A26000%0D%0A26000%0D%0A26000%0D%0A26000&m=psom">like this (st1 capped to r3.3 first update and getting maximum RP the later weeks).</a>
         Overall, still a minimum of six honor updates are needed to reach r14 from r0.
     </p>
 
@@ -519,7 +519,8 @@ main()
     <h4>Update 2021-12-04: SoM Honor System Fixed</h4>
     <p>
         SoM honor system progress seems to be fixed and recalculated for all players now (2x RP gain, 40% decay).
-        The <a href="https://www.vanillawar.com/tools/honor/?m=psom">SoM honor calculator</a> proves accurate, again.
+        The <a href="https://www.vanillawar.com/tools/honor/?m=psom">SoM honor calculator</a> proves accurate.
+        The "SoM Small Indie Company Edition™ (2x RP gain, 20% decay)" option was removed, but remains available <a href="https://www.vanillawar.com/tools/honor/?m=psomKEK"></a>via URL parameter</a>.
     </p>
 
     <p>
