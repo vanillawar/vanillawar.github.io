@@ -58,9 +58,9 @@ def template(snippet):
   <nav class="row">
   <!--
     <span class="col-sm"><a href="{rel}pug/ony/">Onyxia PuG</a></span>
+    <span class="col-sm"><a href="{rel}tools/honor-pool/">Honor Pool Estimation</a></span>
     -->
     <span class="col-sm"><a href="{rel}tools/honor/">Honor Calculator</a></span>
-    <span class="col-sm"><a href="{rel}tools/honor-pool/">Honor Pool Estimation</a></span>
     <span class="col-sm"><a href="{rel}checklist/">Checklist</a></span>
     <span class="col-sm"><a href="{rel}ui-macros.html">UI/Macros</a></span>
     <span class="col-sm"><a href="{rel}glossary.html">Glossary</a></span>
@@ -84,7 +84,7 @@ def template(snippet):
         <small>
           <a href="{rel}about.html#legal">About</a><br>
           <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a><br>
-          © 2018-2021 by <a href="{rel}about.html">Warlord Drak</a>
+          © 2018-2022 by <a href="{rel}about.html">Warlord Drak</a>
         </small>
       </p>
       <p>
