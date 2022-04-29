@@ -82,7 +82,7 @@ def template(snippet):
     <div class="col-sm">
       <p>
         <small>
-          <a href="{rel}about.html#legal">About</a><br>
+          <a href="{rel}about.html">About</a><br>
           <a href="https://discord.gg/EQERaDj" target="_blank">discord.gg/EQERaDj</a><br>
           © 2018-2022 by <a href="{rel}about.html">Warlord Drak</a>
         </small>
