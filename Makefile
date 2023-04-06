@@ -1,5 +1,5 @@
 all:
-	pipenv run python3 templater.py
+	python3 templater.py
 
 test:
 	pipenv run pytest
