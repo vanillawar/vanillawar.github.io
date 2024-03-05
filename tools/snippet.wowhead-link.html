@@ -15,11 +15,11 @@ function buildWowheadLink() {
     var item="item=11110"
     var linkText = wowheadUrl
 
-    if (wowheadUrlParts.length >= 3) {
-        item = wowheadUrlParts[3];
-    }
     if (wowheadUrlParts.length >= 4) {
-        linkText = wowheadUrlParts[4];
+        item = wowheadUrlParts[4];
+    }
+    if (wowheadUrlParts.length >= 5) {
+        linkText = wowheadUrlParts[5];
     }
     if (input.length > 1) {
         linkText = input.slice(1).join(" ");
