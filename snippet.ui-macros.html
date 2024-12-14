@@ -150,6 +150,10 @@
 /use Red Qiraji Resonating Crystal
 /use Horn of the Black War Wolf</pre>
 <p>
+  Cancel Bloodrage, 1.12:
+</p>
+<pre>/run local i=0 g=GetPlayerBuffTexture;if(not g(i)) then i=1;end while(g(i)) do if(string.find(g(i),"Ability_Racial_BloodRage"))then CancelPlayerBuff(i) end i=i+1 end</pre>
+<p>
   Reset instances:
 </p>
 <pre>/run ResetInstances();</pre>
